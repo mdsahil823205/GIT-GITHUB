@@ -1,19 +1,83 @@
-git main basically 3 
-1. sabse (working directory) banta hai 
-2. phir uske baad (staging area) main jaata hai 
-3. phir uske baad (resository) banta hai 
+Git ke 3 Main Areas
+1. Working Directory
 
+Yaha hum normal coding ya file editing karte hain.
+Jo bhi changes hum likhte hain, woh sabse pehle yahi rehte hain.
 
-command  
-1. git init   // isse hum working directory ko staging area main jaate isse yeh hoota hai git track karta hai mera chota chota changes ko 
-2. git status // isse hum dekh skte hai mera status kiya hai 
+2. Staging Area
 
+Yaha woh files jaati hain jinhe hum commit ke liye ready karte hain.
+Git yaha changes ko temporarily store karta hai.
 
+3. Repository (Repo)
 
+Yaha final saved version rehta hai.
+Commit karne ke baad changes repository mein save ho jaate hain.
 
-aur jab bhi mera file main (U) likh ke aaye toh uska matlab hota hai untracked abhi woh tracked nahi hora hai iske loye hum 
-(git add .) karenge toh sabka sab fie git add ho jaiyega yah toh phir hum git add filename example ( git add index.html) phir file jo rahega usme (A) likh kar aayega  agar iske baare main humein aur janna hua toh git add -h likhenge toh pura information mil jaaiyega kiya kiya kaise hoga 
+Important Commands
+1. git init
+git init
+Isse current folder Git repository ban jaata hai.
+Git humare files aur changes ko track karna start karta hai.
+2. git status
+git status
+Is command se hum current status dekh sakte hain.
+Kaunsi file tracked hai, modified hai, ya untracked hai sab pata chalta hai.
+File Status Samjho
+(U) → Untracked
 
-ab agar hum (git add .) kar uske baad file ke samne (A) likh kar aayega agar hum apne file main ek line ya ek bhi word kuch likhenge toh file ke samne (M) likh kar aayega (M) ka matlab hota hai modify hua hai file main 
+Matlab:
 
-aur humlog jab bhi kuch bhi likhte hai toh woh working directory hota hai jaise (git add .) karenge toh woh staging area main chal jaat hai  ab iske baad kuch bhi likhenge toh git humesha compare karta hai working directory ko staging area se woh dikhte hai mera working mein kuch likha hua hai par woh staging area main nahi aaya hai isliye (M) likh kar aata hai 
+File Git ke andar abhi track nahi ho rahi hai.
+
+Example:
+
+U index.html
+Isko track karne ke liye:
+git add .
+
+Ya specific file:
+
+git add index.html
+(A) → Added
+
+Matlab:
+
+File staging area mein chali gayi hai.
+Ab commit ke liye ready hai.
+(M) → Modified
+
+Matlab:
+
+File mein changes hue hain.
+
+Example:
+
+Pehle git add . kiya.
+Phir file mein kuch aur likh diya.
+
+Ab Git compare karta hai:
+
+Working Directory
+VS
+Staging Area
+
+Git dekhta hai:
+
+“Working directory mein naye changes hain, lekin staging area mein update nahi hue.”
+
+Isliye file ke saamne (M) dikhata hai.
+
+Important Flow
+Working Directory
+        ↓
+    git add .
+        ↓
+   Staging Area
+        ↓
+    git commit
+        ↓
+    Repository
+Extra Help Command
+git add -h
+git add ke saare options aur help dikhata hai.
