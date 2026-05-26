@@ -1,0 +1,15 @@
+git main basically 3 
+1. sabse (working directory) banta hai 
+2. phir uske baad (staging area) main jaata hai 
+3. phir uske baad (resository) banta hai 
+
+
+command  
+1. git init   // isse hum working directory ko staging area main jaate isse yeh hoota hai git track karta hai mera chota chota changes ko 
+2. git status // isse hum dekh skte hai mera status kiya hai 
+
+
+
+
+aur jab bhi mera file main (U) likh ke aaye toh uska matlab hota hai untracked abhi woh tracked nahi hora hai iske loye hum 
+(git add .) karenge toh sabka sab fie git add ho jaiyega yah toh phir hum git add filename example ( git add index.html) phir file jo rahega usme (A) likh kar aayega  agar iske baare main humein aur janna hua toh git add -h likhenge toh pura information mil jaaiyega kiya kiya kaise hoga
