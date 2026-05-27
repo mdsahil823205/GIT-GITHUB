@@ -81,3 +81,6 @@ Working Directory
 Extra Help Command
 git add -h
 git add ke saare options aur help dikhata hai.
+
+
+aur humko dekhna hai maine kab kab commit kiya hu toh (git log) karenge isse yeh details milta hai maine kab kab kya kiya

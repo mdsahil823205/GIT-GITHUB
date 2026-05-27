@@ -1,0 +1,4023 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://41chaitanya.github.io/git_github_notes/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Git and GitHub Documentation - Learn with Doraemon Friends</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* CSS Variables for Theme */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #34495e;
+  --heading-color: #2c3e50;
+  --sidebar-bg: #2c3e50;
+  --sidebar-text: #ecf0f1;
+  --sidebar-hover: #34495e;
+  --toc-bg: #f8f9fa;
+  --toc-text: #7f8c8d;
+  --border-color: #dee2e6;
+  --code-bg: #f8f9fa;
+  --code-text: #e74c3c;
+  --pre-bg: #2c3e50;
+  --pre-text: #ecf0f1;
+  --info-bg: #e8f4f8;
+  --info-border: #3498db;
+  --warning-bg: #fff3cd;
+  --warning-border: #ffc107;
+  --success-bg: #d4edda;
+  --success-border: #28a745;
+  --danger-bg: #f8d7da;
+  --danger-border: #dc3545;
+  --table-hover: #f8f9fa;
+  --link-color: #3498db;
+  --link-hover: #2980b9;
+  --diagram-bg: #f8f9fa;
+  --team-bg: #f8f9fa;
+  --team-border: #e9ecef;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --heading-color: #ffffff;
+  --sidebar-bg: #0d0d0d;
+  --sidebar-text: #e0e0e0;
+  --sidebar-hover: #1a1a1a;
+  --toc-bg: #242424;
+  --toc-text: #a0a0a0;
+  --border-color: #3a3a3a;
+  --code-bg: #2d2d2d;
+  --code-text: #ff6b6b;
+  --pre-bg: #0d0d0d;
+  --pre-text: #e0e0e0;
+  --info-bg: #1a3a4a;
+  --info-border: #3498db;
+  --warning-bg: #4a3a1a;
+  --warning-border: #ffc107;
+  --success-bg: #1a3a2a;
+  --success-border: #28a745;
+  --danger-bg: #4a1a1a;
+  --danger-border: #dc3545;
+  --table-hover: #2d2d2d;
+  --link-color: #5dade2;
+  --link-hover: #3498db;
+  --diagram-bg: #2d2d2d;
+  --team-bg: #2d2d2d;
+  --team-border: #3a3a3a;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* LEFT SIDEBAR */
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-header {
+  padding: 25px 20px;
+  background: #1a252f;
+  border-bottom: 1px solid #34495e;
+}
+
+.sidebar-header h1 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.sidebar-header p {
+  font-size: 0.85em;
+  color: #95a5a6;
+}
+
+.home-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  transition: opacity 0.2s;
+}
+
+.home-btn:hover {
+  opacity: 0.8;
+}
+
+.home-btn:hover .home-btn-icon {
+  background: #2980b9;
+}
+
+.home-btn-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #3498db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.home-btn-text h1 {
+  font-size: 1.1em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.home-btn-text p {
+  font-size: 0.78em;
+  color: #95a5a6;
+  margin: 2px 0 0 0;
+}
+
+.nav-section {
+  padding: 15px 0;
+  border-bottom: 1px solid #34495e;
+}
+
+.nav-section-title {
+  padding: 8px 20px;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #95a5a6;
+  font-weight: 600;
+}
+
+.nav-link {
+  display: block;
+  padding: 10px 20px;
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-size: 0.95em;
+}
+
+.nav-link:hover {
+  background: transparent;
+  border-left: 3px solid var(--link-color);
+  padding-left: 22px;
+  color: #ffffff;
+}
+
+.nav-link.active {
+  background: #3498db;
+  border-left: 4px solid #2980b9;
+  padding-left: 16px;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  flex: 1;
+  margin-left: 280px;
+  margin-right: 250px;
+  overflow-y: auto;
+  padding: 40px 60px;
+  background: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-size: 2.5em;
+  color: var(--heading-color);
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #3498db;
+}
+
+h2 {
+  font-size: 1.8em;
+  color: var(--heading-color);
+  margin-top: 40px;
+  margin-bottom: 15px;
+  scroll-margin-top: 20px;
+}
+
+h3 {
+  font-size: 1.3em;
+  color: var(--heading-color);
+  margin-top: 30px;
+  margin-bottom: 12px;
+  scroll-margin-top: 20px;
+}
+
+h4 {
+  font-size: 1.1em;
+  color: var(--toc-text);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+code {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  color: var(--code-text);
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--pre-bg);
+  color: var(--pre-text);
+  padding: 20px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+.command { color: #3498db; }
+.comment { color: #95a5a6; }
+.output { color: #2ecc71; }
+
+ul, ol {
+  margin: 15px 0 15px 30px;
+  line-height: 1.8;
+}
+
+li {
+  margin: 8px 0;
+  color: var(--text-color);
+}
+
+.info-box {
+  background: var(--info-bg);
+  border-left: 4px solid var(--info-border);
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-radius: 4px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.warning-box {
+  background: var(--warning-bg);
+  border-left: 4px solid var(--warning-border);
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-radius: 4px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.success-box {
+  background: var(--success-bg);
+  border-left: 4px solid var(--success-border);
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-radius: 4px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.danger-box {
+  background: var(--danger-bg);
+  border-left: 4px solid var(--danger-border);
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-radius: 4px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover: border highlight only, no background change */
+.info-box:hover {
+  border-left-width: 6px;
+  box-shadow: inset 0 0 0 1px var(--info-border);
+}
+
+.warning-box:hover {
+  border-left-width: 6px;
+  box-shadow: inset 0 0 0 1px var(--warning-border);
+}
+
+.success-box:hover {
+  border-left-width: 6px;
+  box-shadow: inset 0 0 0 1px var(--success-border);
+}
+
+.danger-box:hover {
+  border-left-width: 6px;
+  box-shadow: inset 0 0 0 1px var(--danger-border);
+}
+
+.team-member:hover {
+  border-color: var(--link-color);
+  box-shadow: 0 0 0 2px var(--link-color);
+  transform: translateY(-3px);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.team-member {
+  text-align: center;
+  padding: 20px;
+  background: var(--team-bg);
+  border-radius: 8px;
+  border: 2px solid var(--team-border);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.team-member img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #3498db;
+}
+
+.team-member h4 {
+  margin: 10px 0 5px 0;
+  color: #2c3e50;
+}
+
+.team-member p {
+  font-size: 0.9em;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+tr:hover {
+  background: transparent;
+  outline: 1px solid var(--link-color);
+}
+
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 2px solid #e9ecef;
+}
+
+.page-nav-btn {
+  padding: 12px 24px;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.2s;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.page-nav-btn:hover {
+  background: #2980b9;
+}
+
+.page-nav-btn.disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* RIGHT TABLE OF CONTENTS */
+.toc {
+  width: 250px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--toc-bg);
+  border-left: 1px solid var(--border-color);
+  overflow-y: auto;
+  padding: 30px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.toc-title {
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--toc-text);
+  margin-bottom: 15px;
+}
+
+.toc-link {
+  display: block;
+  padding: 6px 0 6px 15px;
+  color: var(--toc-text);
+  text-decoration: none;
+  font-size: 0.9em;
+  border-left: 2px solid transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.toc-link:hover {
+  color: var(--heading-color);
+  padding-left: 20px;
+}
+
+.toc-link.active {
+  color: #3498db;
+  border-left-color: #3498db;
+  font-weight: 500;
+}
+
+.toc-link.level-3 {
+  padding-left: 25px;
+  font-size: 0.85em;
+}
+
+.toc-link.level-3:hover {
+  padding-left: 30px;
+}
+
+.diagram {
+  background: var(--diagram-bg);
+  padding: 20px;
+  border-radius: 5px;
+  margin: 20px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  overflow-x: auto;
+  color: var(--text-color);
+}
+
+strong {
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 270px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--bg-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.theme-icon {
+  color: var(--heading-color);
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+  transform: rotate(20deg);
+}
+
+@media (max-width: 1200px) {
+  .toc { display: none; }
+  .main-content { margin-right: 0; }
+  .theme-toggle { right: 20px; }
+}
+
+@media (max-width: 768px) {
+  .sidebar { 
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  
+  .main-content { 
+    margin-left: 0; 
+    padding: 20px;
+  }
+  
+  .theme-toggle {
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+  
+  h1 {
+    font-size: 1.8em;
+  }
+  
+  h2 {
+    font-size: 1.4em;
+  }
+  
+  h3 {
+    font-size: 1.1em;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  table {
+    font-size: 0.85em;
+  }
+  
+  pre {
+    font-size: 0.8em;
+    padding: 15px;
+  }
+}
+
+/* ===== LANDING DASHBOARD ===== */
+#landing {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#landing.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+}
+
+.landing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  font-size: 0.8em;
+  color: var(--toc-text);
+  margin-bottom: 32px;
+  letter-spacing: 0.05em;
+}
+
+.landing-badge span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3498db;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+.badge-link {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+
+.badge-link:hover {
+  color: #e1306c;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.landing-title {
+  font-size: clamp(2.2em, 6vw, 4em);
+  font-weight: 700;
+  color: var(--heading-color);
+  text-align: center;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+.landing-title span {
+  color: #3498db;
+}
+
+.landing-desc {
+  font-size: clamp(0.95em, 2vw, 1.15em);
+  color: var(--toc-text);
+  text-align: center;
+  max-width: 560px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.nyc-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  margin-bottom: 40px;
+  background: var(--team-bg);
+}
+
+.nyc-credit-label {
+  font-size: 0.82em;
+  color: var(--toc-text);
+}
+
+.nyc-credit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  color: var(--heading-color);
+  font-size: 0.88em;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nyc-credit-link:hover {
+  color: #ff0000;
+}
+
+.nyc-credit-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: #1a1a1a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nyc-credit-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.landing-cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.landing-card {
+  background: var(--team-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 16px 22px;
+  font-size: 0.88em;
+  color: var(--text-color);
+  min-width: 150px;
+  text-align: center;
+}
+
+.landing-card strong {
+  display: block;
+  font-size: 1.5em;
+  color: #3498db;
+  margin-bottom: 4px;
+}
+
+.landing-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 56px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+.btn-primary svg { transition: transform 0.2s; }
+.btn-primary:hover svg { transform: translateX(4px); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  border-color: #3498db;
+  color: #3498db;
+  transform: translateY(-2px);
+}
+
+.landing-footer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.landing-footer-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-label {
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--toc-text);
+  font-weight: 600;
+}
+
+.footer-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.landing-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.85em;
+  font-weight: 500;
+  padding: 7px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.landing-footer a:hover {
+  border-color: #3498db;
+  color: #3498db;
+  transform: translateY(-2px);
+}
+
+.footer-divider {
+  width: 1px;
+  height: 60px;
+  background: var(--border-color);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.social-icon svg { width: 14px; height: 14px; }
+
+.yt-icon   { background: #1a1a1a; }
+.insta-icon { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.li-icon   { background: #0077b5; }
+.gh-icon   { background: #333; }
+
+@media (max-width: 600px) {
+  .footer-divider { width: 80%; height: 1px; }
+  .landing-footer { gap: 20px; }
+}
+
+@media (max-width: 480px) {
+  .landing-cards { gap: 10px; }
+  .landing-card { min-width: 120px; padding: 12px 14px; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .landing-actions { width: 100%; }
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  background: var(--bg-color);
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.mobile-menu-btn span {
+  width: 20px;
+  height: 2px;
+  background: var(--heading-color);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 99;
+}
+
+.mobile-overlay.active {
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 1.5em;
+  }
+  
+  .page-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .page-nav-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body cz-shortcut-listen="true">
+
+<!-- ===== LANDING DASHBOARD ===== -->
+<div id="landing" class="hide" style="display: none;">
+
+  <!-- Theme toggle on landing -->
+  <button id="theme-toggle-landing" class="theme-toggle" style="position:absolute; top:20px; right:20px;" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+    <svg class="theme-icon moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+    <svg class="theme-icon sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </button>
+
+  <div class="landing-badge">
+    <span></span>
+    <a href="https://www.instagram.com/notyourcollege/" target="_blank" class="badge-link">NYC</a>
+    presents
+  </div>
+
+  <h1 class="landing-title">
+    Learn <span>Git</span> and <span>GitHub</span><br>from scratch
+  </h1>
+
+  <p class="landing-desc">
+    A complete beginner-friendly guide to version control. Understand how Git works, collaborate on GitHub, manage branches, resolve conflicts, and ship code like a professional.
+  </p>
+
+  <div class="landing-cards">
+    <div class="landing-card">
+      <strong>20+</strong>
+      Topics covered
+    </div>
+    <div class="landing-card">
+      <strong>100%</strong>
+      Free to read
+    </div>
+    <div class="landing-card">
+      <strong>Practical</strong>
+      With examples
+    </div>
+  </div>
+
+  <div class="landing-actions">
+    <button class="btn-primary" onclick="enterDocs()">
+      Get Started
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <div class="landing-footer">
+
+    <div class="landing-footer-group">
+      <span class="footer-label">Powered by</span>
+      <div class="footer-links">
+        <a href="https://www.youtube.com/@notyourcollege" target="_blank" title="Not Your College - YouTube">
+          <span class="social-icon yt-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81z" fill="white"></path>
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#ff0000"></polygon>
+            </svg>
+          </span>
+          Not Your College
+        </a>
+        <a href="https://www.instagram.com/notyourcollege/" target="_blank" title="Not Your College - Instagram">
+          <span class="social-icon insta-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"></circle>
+            </svg>
+          </span>
+          NYC Instagram
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="landing-footer-group">
+      <span class="footer-label">Instructor</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/chaitanya-sharma-799041301" target="_blank" title="Chaitanya Sharma - LinkedIn">
+          <span class="social-icon li-icon">
+            <svg viewBox="0 0 24 24" fill="white">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </span>
+          LinkedIn
+        </a>
+        <a href="https://www.instagram.com/chaitanya.sharrma/" target="_blank" title="Chaitanya Sharma - Instagram">
+          <span class="social-icon insta-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"></circle>
+            </svg>
+          </span>
+          Instagram
+        </a>
+        <a href="https://github.com/41chaitanya" target="_blank" title="Chaitanya Sharma - GitHub">
+          <span class="social-icon gh-icon">
+            <svg viewBox="0 0 24 24" fill="white">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"></path>
+            </svg>
+          </span>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- ===== END LANDING ===== -->
+
+<!-- Mobile Menu Button -->
+<button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" onclick="closeMobileMenu()"></div>
+
+<!-- Theme Toggle Button -->
+<button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+  <svg class="theme-icon moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+  <svg class="theme-icon sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+  </svg>
+</button>
+
+<!-- LEFT SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <button class="home-btn" onclick="goHome()" title="Back to Home">
+      <div class="home-btn-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </div>
+      <div class="home-btn-text">
+        <h1>Git &amp; GitHub</h1>
+        <p>Learn with Doraemon Friends</p>
+      </div>
+    </button>
+  </div>
+  
+  <div class="nav-section">
+    <div class="nav-section-title">Getting Started</div>
+    <a class="nav-link active" onclick="showPage(&#39;intro&#39;)">Introduction</a>
+    <a class="nav-link" onclick="showPage(&#39;install&#39;)">Installing Git</a>
+    <a class="nav-link" onclick="showPage(&#39;config&#39;)">First-Time Setup</a>
+  </div>
+  
+  <div class="nav-section">
+    <div class="nav-section-title">Core Concepts</div>
+    <a class="nav-link" onclick="showPage(&#39;concepts&#39;)">Key Concepts</a>
+    <a class="nav-link" onclick="showPage(&#39;stages&#39;)">Three Stages of Git</a>
+    <a class="nav-link" onclick="showPage(&#39;commands&#39;)">Basic Commands</a>
+  </div>
+  
+  <div class="nav-section">
+    <div class="nav-section-title">Working with Files</div>
+    <a class="nav-link" onclick="showPage(&#39;gitignore&#39;)">gitignore &amp; gitkeep</a>
+    <a class="nav-link" onclick="showPage(&#39;undoing&#39;)">Undoing Changes</a>
+  </div>
+  
+  <div class="nav-section">
+    <div class="nav-section-title">Branching</div>
+    <a class="nav-link" onclick="showPage(&#39;branches&#39;)">Understanding Branches</a>
+    <a class="nav-link" onclick="showPage(&#39;merging&#39;)">Merging Branches</a>
+    <a class="nav-link" onclick="showPage(&#39;conflicts&#39;)">Merge Conflicts</a>
+  </div>
+  
+  <div class="nav-section">
+    <div class="nav-section-title">GitHub</div>
+    <a class="nav-link" onclick="showPage(&#39;github-intro&#39;)">What is GitHub</a>
+    <a class="nav-link" onclick="showPage(&#39;github-account&#39;)">Creating Account</a>
+    <a class="nav-link" onclick="showPage(&#39;github-repo&#39;)">Creating Repository</a>
+    <a class="nav-link" onclick="showPage(&#39;ssh-setup&#39;)">HTTPS vs SSH</a>
+    <a class="nav-link" onclick="showPage(&#39;push-pull&#39;)">Push and Pull</a>
+  </div>
+  
+  <div class="nav-section">
+    <div class="nav-section-title">Collaboration</div>
+    <a class="nav-link" onclick="showPage(&#39;remote-branches&#39;)">Remote Branches</a>
+    <a class="nav-link" onclick="showPage(&#39;pull-requests&#39;)">Pull Requests</a>
+    <a class="nav-link" onclick="showPage(&#39;forking&#39;)">Forking Projects</a>
+  </div>
+  
+  <div class="nav-section">
+    <div class="nav-section-title">Advanced Topics</div>
+    <a class="nav-link" onclick="showPage(&#39;stash&#39;)">Git Stash</a>
+    <a class="nav-link" onclick="showPage(&#39;rebase&#39;)">Git Rebase</a>
+  </div>
+  
+  <div class="nav-section">
+    <div class="nav-section-title">Practice</div>
+    
+    <a class="nav-link" onclick="showPage(&#39;cheatsheet&#39;)">Command Cheatsheet</a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+<!-- PAGE: INTRODUCTION -->
+<div class="page active" id="page-intro">
+  <h1>Introduction to Git and GitHub</h1>
+  
+  <h2 id="intro-problem">The Problem Without Version Control</h2>
+  
+  <h3 id="intro-team">Meet Our Coding Team</h3>
+  
+  <p>Three friends from the Doraemon series have decided to build a School Project Tracker web application together:</p>
+  
+  <div class="team-grid">
+    <div class="team-member">
+      <img src="./Git and GitHub Documentation - Learn with Doraemon Friends_files/0777cf958aebecaa2cb96f37757469d2.jpg" alt="Gian">
+      <h4>Gian</h4>
+      <p>Team Lead</p>
+      <p>Manages main codebase</p>
+    </div>
+    
+    <div class="team-member">
+      <img src="./Git and GitHub Documentation - Learn with Doraemon Friends_files/623b500b765f5715c35013ecb20469b9.jpg" alt="Nobita">
+      <h4>Nobita</h4>
+      <p>Frontend Developer</p>
+      <p>Works on user interface</p>
+    </div>
+    
+    <div class="team-member">
+      <img src="./Git and GitHub Documentation - Learn with Doraemon Friends_files/0169e238bdb33dafb6cdf9e4cd1ac8c4.jpg" alt="Suneo">
+      <h4>Suneo</h4>
+      <p>Backend Developer</p>
+      <p>Works on server logic</p>
+    </div>
+  </div>
+  
+  <h3 id="intro-chaos">Problems Without Git</h3>
+  
+  <p>Initially, they try to manage their code by saving files on their computers and sharing via email or USB drives. Here are the problems they face:</p>
+  
+  <div class="warning-box">
+    <h4>Problem 1: Lost Work</h4>
+    <p>Gian creates a file called <code>app.txt</code> with some code. Next day, he makes changes and saves the file again. Now the original version is gone forever. If the new code has bugs, he cannot go back to the working version.</p>
+  </div>
+  
+  <div class="warning-box">
+    <h4>Problem 2: Messy File Names</h4>
+    <p>To avoid losing old versions, they start creating multiple copies:</p>
+    <ul>
+      <li><code>app.txt</code></li>
+      <li><code>app_v2.txt</code></li>
+      <li><code>app_final.txt</code></li>
+      <li><code>app_final_REALLY_FINAL.txt</code></li>
+      <li><code>app_gian_fixed_v3.txt</code></li>
+    </ul>
+    <p>This becomes impossible to manage!</p>
+  </div>
+  
+  <div class="warning-box">
+    <h4>Problem 3: Collaboration Chaos</h4>
+    <p>Nobita emails his <code>homepage.txt</code> file to Gian. Suneo also emails his version of <code>homepage.txt</code>. Now Gian has two files with the same name but different content. Which one is correct? How to combine them?</p>
+  </div>
+  
+  <div class="warning-box">
+    <h4>Problem 4: No History</h4>
+    <p>When a bug appears in the code, they cannot see who made what changes and when. Debugging becomes very difficult.</p>
+  </div>
+  
+  <div class="warning-box">
+    <h4>Problem 5: Overwriting Work</h4>
+    <p>Gian and Nobita both edit <code>styles.txt</code>. When they share files, one person's work gets completely overwritten and lost.</p>
+  </div>
+  
+  <div class="warning-box">
+    <h4>Problem 6: No Backup</h4>
+    <p>If Gian's laptop crashes or gets stolen, all the code is lost forever. There is no backup.</p>
+  </div>
+  
+  <div class="diagram">
+<pre>Without Git - The Chaos:
+
+Gian's Computer:            Nobita's Computer:          Suneo's Computer:
+app.txt                     app_nobita.txt              app_suneo.txt
+app_v2.txt                  homepage.txt                server_code.txt
+app_final.txt               homepage_new.txt            database.txt
+app_FINAL2.txt              styles.txt                  
+                            styles_updated.txt          
+
+Problems:
+- No sync between computers
+- No history of changes
+- No way to merge work
+- Files sent via email/USB
+- Easy to lose work
+</pre>
+  </div>
+  
+  <h2 id="intro-solution">The Solution: Git</h2>
+  
+  <p><strong>Git</strong> is a Version Control System that solves all these problems. It is a tool that tracks every change made to your files, who made the change, and when it was made.</p>
+  
+  <div class="success-box">
+    <h4>How Git Helps:</h4>
+    <ul>
+      <li><strong>Snapshots:</strong> Git saves complete snapshots of your project at different points in time</li>
+      <li><strong>Time Travel:</strong> You can go back to any previous version instantly</li>
+      <li><strong>Collaboration:</strong> Multiple people can work on the same files without conflicts</li>
+      <li><strong>History:</strong> See exactly who changed what, when, and why</li>
+      <li><strong>Branching:</strong> Work on new features without breaking the main code</li>
+      <li><strong>Backup:</strong> Store code safely in the cloud using GitHub</li>
+    </ul>
+  </div>
+  
+  <h2 id="intro-github">Git vs GitHub</h2>
+  
+  <p>Many beginners confuse Git and GitHub. They are different things:</p>
+  
+  <div class="info-box">
+    <p><strong>Git</strong> is a program you install on your computer. It tracks changes to your files locally on your machine.</p>
+    <p><strong>GitHub</strong> is a website (github.com) where you can upload and store your Git projects online. Think of it like Google Drive but specifically designed for code.</p>
+  </div>
+  
+  <p><strong>Simple Analogy:</strong></p>
+  <ul>
+    <li><strong>Git</strong> is like your personal notebook where you write your work and keep every draft</li>
+    <li><strong>GitHub</strong> is like a library where you store a copy of your notebook so others can read it and contribute</li>
+  </ul>
+  
+  <p>You can use Git without GitHub (working locally only). But GitHub needs Git to function. In this guide, you will learn both.</p>
+  
+  <div class="page-nav">
+    <span></span>
+    <a class="page-nav-btn" onclick="showPage(&#39;install&#39;)">Next: Installing Git</a>
+  </div>
+</div>
+
+
+<!-- PAGE: INSTALLING GIT -->
+<div class="page" id="page-install">
+  <h1>Installing Git</h1>
+  
+  <p>Before you can use Git, you need to install it on your computer. The installation process is different for Windows, Mac, and Linux.</p>
+  
+  <h2 id="install-windows">Installing on Windows</h2>
+  
+  <ol>
+    <li>Open your web browser and go to <code>https://git-scm.com</code></li>
+    <li>Click the big <strong>Download for Windows</strong> button</li>
+    <li>Once the file downloads, run the installer (it will be named something like <code>Git-2.43.0-64-bit.exe</code>)</li>
+    <li>Click <strong>Next</strong> on all the screens - the default settings are perfect for beginners</li>
+    <li>Click <strong>Install</strong> and wait for it to finish</li>
+    <li>Click <strong>Finish</strong> when done</li>
+  </ol>
+  
+  <div class="info-box">
+    <h4>After Installing on Windows</h4>
+    <p>You now have a program called <strong>Git Bash</strong>. This is a special terminal window where you will type all your Git commands.</p>
+    <p>To open it: Click the Start Menu and search for "Git Bash"</p>
+  </div>
+  
+  <h2 id="install-mac">Installing on Mac</h2>
+  
+  <p>Mac computers often come with Git pre-installed. Let's check:</p>
+  
+  <ol>
+    <li>Open the <strong>Terminal</strong> application (press <code>Cmd + Space</code>, type "Terminal", and press Enter)</li>
+    <li>Type this command and press Enter:</li>
+  </ol>
+  
+  <pre><code>git --version</code></pre>
+  
+  <p>If you see a version number like <code>git version 2.39.0</code>, Git is already installed!</p>
+  
+  <p>If Git is not installed, your Mac will automatically show a popup asking you to install it. Click <strong>Install</strong> and follow the prompts.</p>
+  
+  <h2 id="install-linux">Installing on Linux</h2>
+  
+  <p>Open your terminal and run these commands:</p>
+  
+  <p><strong>For Ubuntu/Debian:</strong></p>
+  <pre><code>sudo apt update
+sudo apt install git</code></pre>
+  
+  <p><strong>For Fedora:</strong></p>
+  <pre><code>sudo dnf install git</code></pre>
+  
+  <h2 id="install-verify">Verifying Installation</h2>
+  
+  <p>After installing, let's verify that Git is working correctly:</p>
+  
+  <ol>
+    <li>Open your terminal (Git Bash on Windows, Terminal on Mac/Linux)</li>
+    <li>Type this command and press Enter:</li>
+  </ol>
+  
+  <pre><code>git --version</code></pre>
+  
+  <p>You should see output like:</p>
+  
+  <pre><code><span class="output">git version 2.43.0</span></code></pre>
+  
+  <p>If you see a version number, congratulations! Git is installed and working.</p>
+  
+  <div class="warning-box">
+    <h4>Important Note About Commands</h4>
+    <p>In many tutorials, you will see commands written with a dollar sign like this: <code>$ git --version</code></p>
+    <p><strong>Do not type the dollar sign!</strong> It just means "this is a terminal command". Only type what comes after it.</p>
+  </div>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;intro&#39;)">Previous: Introduction</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;config&#39;)">Next: First-Time Setup</a>
+  </div>
+</div>
+
+<!-- PAGE: FIRST-TIME SETUP -->
+<div class="page" id="page-config">
+  <h1>First-Time Setup</h1>
+  
+  <p>Before using Git for the first time, you need to tell it your name and email address. This is important because every change you make will be recorded with your name.</p>
+  
+  <h2 id="config-why">Why is This Needed?</h2>
+  
+  <p>When you save a snapshot of your code (called a "commit"), Git records:</p>
+  <ul>
+    <li>What changed</li>
+    <li>When it changed</li>
+    <li><strong>Who made the change</strong></li>
+  </ul>
+  
+  <p>This is very important when working in a team. Everyone can see who did what and when.</p>
+  
+  <h2 id="config-name">Setting Your Name</h2>
+  
+  <p>Open your terminal (Git Bash on Windows) and type this command. Replace "Gian" with your actual name:</p>
+  
+  <pre><code><span class="command">git config --global user.name "Gian"</span></code></pre>
+  
+  <p>Press Enter. You will not see any output - that is normal.</p>
+  
+  <h2 id="config-email">Setting Your Email</h2>
+  
+  <p>Now set your email address. Use the same email you will use for your GitHub account:</p>
+  
+  <pre><code><span class="command">git config --global user.email "gautam@example.com"</span></code></pre>
+  
+  <div class="info-box">
+    <h4>What Does --global Mean?</h4>
+    <p>The <code>--global</code> flag means this setting applies to all your Git projects on this computer. You only need to do this once.</p>
+    <p>Without <code>--global</code>, the setting would only apply to one specific project.</p>
+  </div>
+  
+  <h2 id="config-verify">Checking Your Settings</h2>
+  
+  <p>To confirm everything was saved correctly, type:</p>
+  
+  <pre><code><span class="command">git config --list</span></code></pre>
+  
+  <p>You will see a list of settings. Look for these two lines:</p>
+  
+  <pre><code><span class="output">user.name=Gian
+user.email=gautam@example.com</span></code></pre>
+  
+  <p>If you see your name and email, you are all set!</p>
+  
+  <h2 id="config-example">Example: Our Team Sets Up Git</h2>
+  
+  <p><strong>Gian's computer:</strong></p>
+  <pre><code><span class="command">git config --global user.name "Gian"</span>
+<span class="command">git config --global user.email "gian@doraemon.com"</span></code></pre>
+  
+  <p><strong>Nobita's computer:</strong></p>
+  <pre><code><span class="command">git config --global user.name "Nobita"</span>
+<span class="command">git config --global user.email "nobita@doraemon.com"</span></code></pre>
+  
+  <p><strong>Suneo's computer:</strong></p>
+  <pre><code><span class="command">git config --global user.name "Suneo"</span>
+<span class="command">git config --global user.email "suneo@doraemon.com"</span></code></pre>
+  
+  <p>Now when each person makes changes, Git will record who made them.</p>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;install&#39;)">Previous: Installing Git</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;concepts&#39;)">Next: Key Concepts</a>
+  </div>
+</div>
+
+
+<!-- PAGE: KEY CONCEPTS -->
+<div class="page" id="page-concepts">
+  <h1>Key Concepts</h1>
+  
+  <p>Before learning Git commands, you need to understand some important terms. These words will appear constantly when working with Git.</p>
+  
+  <h2 id="concepts-repository">Repository</h2>
+  
+  <p>A <strong>repository</strong> (also called a <strong>repo</strong>) is a project folder that Git is tracking. It contains all your files plus a hidden folder called <code>.git</code> where Git stores the history.</p>
+  
+  <div class="info-box">
+    <h4>Example</h4>
+    <p>Gian creates a folder called <code>school-project</code> for the project. When he tells Git to track this folder, it becomes a repository.</p>
+  </div>
+  
+  <h2 id="concepts-commit">Commit</h2>
+  
+  <p>A <strong>commit</strong> is a saved snapshot of your project at one specific point in time. When you make a commit, you are telling Git: "Save this exact version forever."</p>
+  
+  <p>Every commit has:</p>
+  <ul>
+    <li><strong>A unique ID</strong> - A long code like <code>a1b2c3d4</code> that identifies this snapshot</li>
+    <li><strong>A message</strong> - A short description you write explaining what changed</li>
+    <li><strong>Author</strong> - Who made the commit</li>
+    <li><strong>Date</strong> - When it was made</li>
+  </ul>
+  
+  <p>Good commit messages look like:</p>
+  <ul>
+    <li>"Add login page"</li>
+    <li>"Fix calculation error in score"</li>
+    <li>"Update homepage design"</li>
+  </ul>
+  
+  <h2 id="concepts-branch">Branch</h2>
+  
+  <p>A <strong>branch</strong> is like a parallel copy of your project where you can experiment without affecting the main code.</p>
+  
+  <p>Your main project lives on the <code>main</code> branch (sometimes called <code>master</code>). If you want to try a new feature, you create a new branch, work there, and if it works, you bring it back to main. If it fails, you just delete the branch.</p>
+  
+  <div class="diagram">
+<pre>main branch:    A --- B --- C --- D
+                         \
+feature branch:           E --- F
+</pre>
+  </div>
+  
+  <h2 id="concepts-merge">Merge</h2>
+  
+  <p>When you finish working on a branch and want to add your work back into the main project, you <strong>merge</strong> the branches together. Git combines the changes automatically.</p>
+  
+  <h2 id="concepts-remote">Remote</h2>
+  
+  <p>A <strong>remote</strong> is a version of your repository stored somewhere else - usually on GitHub. The remote acts as your online backup and allows you to share your code with others.</p>
+  
+  <p>By convention, the main remote is named <code>origin</code>.</p>
+  
+  <h2 id="concepts-clone">Clone</h2>
+  
+  <p><strong>Cloning</strong> means downloading a complete copy of a repository from GitHub to your computer, including all files and the entire history of changes.</p>
+  
+  <h2 id="concepts-example">Example: Our Team's Repository</h2>
+  
+  <p>Gian creates a repository called <code>school-project</code>. This repository has:</p>
+  <ul>
+    <li>A <code>main</code> branch where the working code lives</li>
+    <li>Multiple commits showing the history of changes</li>
+    <li>A remote on GitHub where the code is backed up</li>
+  </ul>
+  
+  <p>Nobita creates a <code>feature-login</code> branch to work on the login page without breaking the main code.</p>
+  
+  <p>Suneo clones the repository from GitHub to his computer so he can work on it too.</p>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;config&#39;)">Previous: First-Time Setup</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;stages&#39;)">Next: Three Stages of Git</a>
+  </div>
+</div>
+
+<!-- PAGE: THREE STAGES -->
+<div class="page" id="page-stages">
+  <h1>The Three Stages of Git</h1>
+  
+  <p>This is the MOST IMPORTANT concept in Git. Understanding these three stages will make everything else make sense.</p>
+  
+  <h2 id="stages-overview">Overview</h2>
+  
+  <p>Every file in your Git project exists in one of three states at any given time:</p>
+  
+  <div class="diagram">
+<pre>1. Working Directory  →  2. Staging Area  →  3. Repository
+   (where you edit)      (files ready to save)  (permanently saved)
+</pre>
+  </div>
+  
+  <h2 id="stages-working">Stage 1: Working Directory</h2>
+  
+  <p>This is simply the folder on your computer where your project files live. When you create a new file, edit an existing one, or delete something, those changes happen in the Working Directory.</p>
+  
+  <p>Git can see that changes happened, but it has not saved anything yet.</p>
+  
+  <div class="info-box">
+    <h4>Think of it like this:</h4>
+    <p>Writing on a whiteboard - the words are there for now, but they are not permanent. Anyone could erase them.</p>
+  </div>
+  
+  <p><strong>Example:</strong> Gian creates a new file called <code>notes.txt</code> and writes some text in it. This file is in the Working Directory.</p>
+  
+  <pre><code><span class="comment"># Check what changed</span>
+<span class="command">git status</span>
+
+<span class="output">Untracked files:
+  notes.txt</span></code></pre>
+  
+  <h2 id="stages-staging">Stage 2: Staging Area</h2>
+  
+  <p>The Staging Area (also called the <strong>Index</strong>) is a preparation zone. Before saving a snapshot, you pick and choose which changed files to include.</p>
+  
+  <p>This gives you fine control - maybe you changed 5 files but only want to save 2 of them in this snapshot.</p>
+  
+  <div class="info-box">
+    <h4>Think of it like this:</h4>
+    <p>Preparing an envelope to mail - you have decided what goes inside, but you have not sealed and sent it yet.</p>
+  </div>
+  
+  <p><strong>Example:</strong> Gian decides to stage <code>notes.txt</code>:</p>
+  
+  <pre><code><span class="comment"># Add file to staging area</span>
+<span class="command">git add notes.txt</span>
+
+<span class="command">git status</span>
+
+<span class="output">Changes to be committed:
+  new file: notes.txt</span></code></pre>
+  
+  <h2 id="stages-repository">Stage 3: Repository</h2>
+  
+  <p>Once you commit, Git permanently records a snapshot of all staged files into the repository. This is stored inside a hidden folder called <code>.git</code> inside your project.</p>
+  
+  <p>From this point on, this version exists forever in Git's memory - you can always come back to it.</p>
+  
+  <div class="info-box">
+    <h4>Think of it like this:</h4>
+    <p>Sealing the envelope and locking it in a safe. It is permanent and cannot be changed.</p>
+  </div>
+  
+  <p><strong>Example:</strong> Gian commits the staged file:</p>
+  
+  <pre><code><span class="comment"># Commit with a message</span>
+<span class="command">git commit -m "Add notes file"</span>
+
+<span class="output">[main a1b2c3d] Add notes file
+ 1 file changed, 1 insertion(+)</span></code></pre>
+  
+  <h2 id="stages-complete">Complete Example</h2>
+  
+  <p>Let's see all three stages in action with our cricket team:</p>
+  
+  <pre><code><span class="comment"># Gian creates a new file (Working Directory)</span>
+<span class="comment"># He opens a text editor and creates: score.txt</span>
+<span class="comment"># Content: "Team A: 250 runs"</span>
+
+<span class="comment"># Check status</span>
+<span class="command">git status</span>
+<span class="output">Untracked files:
+  score.txt</span>
+
+<span class="comment"># Move to Staging Area</span>
+<span class="command">git add score.txt</span>
+
+<span class="comment"># Check status again</span>
+<span class="command">git status</span>
+<span class="output">Changes to be committed:
+  new file: score.txt</span>
+
+<span class="comment"># Commit to Repository</span>
+<span class="command">git commit -m "Add initial score"</span>
+<span class="output">[main b2c3d4e] Add initial score
+ 1 file changed, 1 insertion(+)</span>
+
+<span class="comment"># Check status one more time</span>
+<span class="command">git status</span>
+<span class="output">nothing to commit, working tree clean</span></code></pre>
+  
+  <h2 id="stages-multiple">Working with Multiple Files</h2>
+  
+  <p>You can stage multiple files at once:</p>
+  
+  <pre><code><span class="comment"># Stage specific files</span>
+<span class="command">git add file1.txt file2.txt file3.txt</span>
+
+<span class="comment"># Stage ALL changed files</span>
+<span class="command">git add .</span>
+
+<span class="comment"># Then commit them all together</span>
+<span class="command">git commit -m "Add multiple files"</span></code></pre>
+  
+  <div class="warning-box">
+    <h4>Important Rule</h4>
+    <p>You must always do <code>git add</code> before <code>git commit</code>. If you skip the add step, nothing gets committed because the Staging Area is empty.</p>
+  </div>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;concepts&#39;)">Previous: Key Concepts</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;commands&#39;)">Next: Basic Commands</a>
+  </div>
+</div>
+
+
+<!-- PAGE: BASIC COMMANDS -->
+<div class="page" id="page-commands">
+  <h1>Basic Git Commands</h1>
+  
+  <p>These are the essential commands you will use every day when working with Git.</p>
+  
+  <h2 id="commands-init">git init - Start Tracking a Folder</h2>
+  
+  <p>This command turns a normal folder into a Git repository. Run it once inside the folder you want to track.</p>
+  
+  <pre><code><span class="comment"># Navigate to your project folder</span>
+<span class="command">cd school-project</span>
+
+<span class="comment"># Initialize Git</span>
+<span class="command">git init</span>
+
+<span class="output">Initialized empty Git repository in /school-project/.git/</span></code></pre>
+  
+  <p>Git creates a hidden <code>.git</code> folder inside. This is Git's database - do not delete or edit it manually.</p>
+  
+  <h2 id="commands-status">git status - Check What Changed</h2>
+  
+  <p>This is the command you will use most often. It shows you which files have been changed, which are staged, and which are not being tracked yet.</p>
+  
+  <pre><code><span class="command">git status</span></code></pre>
+  
+  <h2 id="commands-add">git add - Stage Your Changes</h2>
+  
+  <p>Move files from Working Directory to Staging Area.</p>
+  
+  <pre><code><span class="comment"># Stage one specific file</span>
+<span class="command">git add filename.txt</span>
+
+<span class="comment"># Stage multiple files</span>
+<span class="command">git add file1.txt file2.txt</span>
+
+<span class="comment"># Stage all changed files</span>
+<span class="command">git add .</span></code></pre>
+  
+  <h2 id="commands-commit">git commit - Save a Snapshot</h2>
+  
+  <p>Save all staged files permanently with a message describing what changed.</p>
+  
+  <pre><code><span class="command">git commit -m "Your message here"</span></code></pre>
+  
+  <p>Write your commit messages in present tense. Good examples:</p>
+  <ul>
+    <li>"Add login page"</li>
+    <li>"Fix score calculation bug"</li>
+    <li>"Update homepage design"</li>
+  </ul>
+  
+  <h2 id="commands-log">git log - View History</h2>
+  
+  <p>See a list of all commits (snapshots) you have made.</p>
+  
+  <pre><code><span class="comment"># Full detailed history</span>
+<span class="command">git log</span>
+
+<span class="comment"># Compact one-line version (easier to read)</span>
+<span class="command">git log --oneline</span>
+
+<span class="output">a1b2c3d Add login page
+9e8f7g6 Fix score bug
+5h4i3j2 Initial commit</span></code></pre>
+  
+  <p>Press <code>Q</code> to quit the log view.</p>
+  
+  <h2 id="commands-diff">git diff - See What Changed</h2>
+  
+  <p>Shows you the actual lines that were added or removed in your files.</p>
+  
+  <pre><code><span class="command">git diff</span></code></pre>
+  
+  <h2 id="commands-example">Complete Example: Gian's First Day</h2>
+  
+  <pre><code><span class="comment"># Day 1: Create project folder</span>
+<span class="command">mkdir school-project</span>
+<span class="command">cd school-project</span>
+
+<span class="comment"># Initialize Git</span>
+<span class="command">git init</span>
+
+<span class="comment"># Create a file (using text editor, save as readme.txt)</span>
+<span class="comment"># Content: "School Project Tracker Project"</span>
+
+<span class="comment"># Check status</span>
+<span class="command">git status</span>
+<span class="output">Untracked files:
+  readme.txt</span>
+
+<span class="comment"># Stage the file</span>
+<span class="command">git add readme.txt</span>
+
+<span class="comment"># Commit</span>
+<span class="command">git commit -m "Add readme file"</span>
+
+<span class="comment"># View history</span>
+<span class="command">git log --oneline</span>
+<span class="output">a1b2c3d Add readme file</span></code></pre>
+  
+  <h2 id="commands-table">Quick Reference Table</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Command</th>
+        <th>What It Does</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>git init</code></td>
+        <td>Start Git tracking in a folder</td>
+      </tr>
+      <tr>
+        <td><code>git status</code></td>
+        <td>Check which files changed</td>
+      </tr>
+      <tr>
+        <td><code>git add filename</code></td>
+        <td>Stage one specific file</td>
+      </tr>
+      <tr>
+        <td><code>git add .</code></td>
+        <td>Stage all changed files</td>
+      </tr>
+      <tr>
+        <td><code>git commit -m "message"</code></td>
+        <td>Save a permanent snapshot</td>
+      </tr>
+      <tr>
+        <td><code>git log</code></td>
+        <td>View commit history</td>
+      </tr>
+      <tr>
+        <td><code>git log --oneline</code></td>
+        <td>View compact history</td>
+      </tr>
+      <tr>
+        <td><code>git diff</code></td>
+        <td>See line-by-line changes</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;stages&#39;)">Previous: Three Stages</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;gitignore&#39;)">Next: gitignore &amp; gitkeep</a>
+  </div>
+</div>
+
+<!-- PAGE: GITIGNORE & GITKEEP -->
+<div class="page" id="page-gitignore">
+  <h1>gitignore and gitkeep</h1>
+  
+  <h2 id="gitignore-what">What is .gitignore?</h2>
+  
+  <p>Sometimes you have files you do NOT want Git to track. For example:</p>
+  <ul>
+    <li>Password files</li>
+    <li>Temporary files</li>
+    <li>Large data files</li>
+    <li>Files that can be regenerated</li>
+  </ul>
+  
+  <p>The <code>.gitignore</code> file tells Git which files to ignore.</p>
+  
+  <h2 id="gitignore-why">Why Ignore Files?</h2>
+  
+  <div class="info-box">
+    <h4>Example from Our Team</h4>
+    <p>Gian has a file called <code>passwords.txt</code> with database passwords. He does NOT want this file on GitHub where everyone can see it. He also has a <code>temp</code> folder with temporary files that are not important.</p>
+  </div>
+  
+  <h2 id="gitignore-create">Creating .gitignore</h2>
+  
+  <p>Create a file named <code>.gitignore</code> in your project root folder (note the dot at the beginning).</p>
+  
+  <p>Inside this file, list the files and folders you want Git to ignore:</p>
+  
+  <pre><code><span class="comment"># Ignore password file</span>
+passwords.txt
+
+<span class="comment"># Ignore entire temp folder</span>
+temp/
+
+<span class="comment"># Ignore all log files</span>
+*.log
+
+<span class="comment"># Ignore config folder</span>
+config/</code></pre>
+  
+  <h2 id="gitignore-example">Complete Example</h2>
+  
+  <pre><code><span class="comment"># Gian creates .gitignore file</span>
+<span class="comment"># (Use text editor to create file named: .gitignore)</span>
+<span class="comment"># Add these lines:</span>
+
+passwords.txt
+temp/
+*.log
+node_modules/
+
+<span class="comment"># Now stage and commit the .gitignore file itself</span>
+<span class="command">git add .gitignore</span>
+<span class="command">git commit -m "Add gitignore file"</span>
+
+<span class="comment"># Git will now ignore those files</span>
+<span class="command">git status</span>
+<span class="output">nothing to commit, working tree clean</span>
+<span class="comment"># (passwords.txt is not shown even though it exists)</span></code></pre>
+  
+  <h2 id="gitignore-patterns">Common Patterns</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Pattern</th>
+        <th>What It Ignores</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>filename.txt</code></td>
+        <td>Specific file</td>
+      </tr>
+      <tr>
+        <td><code>folder/</code></td>
+        <td>Entire folder</td>
+      </tr>
+      <tr>
+        <td><code>*.log</code></td>
+        <td>All files ending with .log</td>
+      </tr>
+      <tr>
+        <td><code>temp*</code></td>
+        <td>All files starting with temp</td>
+      </tr>
+      <tr>
+        <td><code>!important.log</code></td>
+        <td>Exception - do NOT ignore this file</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h2 id="gitkeep-what">What is .gitkeep?</h2>
+  
+  <p>Git does not track empty folders. But sometimes you need to keep an empty folder in your repository.</p>
+  
+  <p><strong>Problem:</strong> Suneo creates an <code>uploads</code> folder where users will upload files later. The folder is empty now, but he wants it in the repository.</p>
+  
+  <p><strong>Solution:</strong> Create an empty file called <code>.gitkeep</code> inside the folder.</p>
+  
+  <h2 id="gitkeep-example">Example</h2>
+  
+  <pre><code><span class="comment"># Suneo creates uploads folder</span>
+<span class="command">mkdir uploads</span>
+
+<span class="comment"># Create .gitkeep file inside it</span>
+<span class="comment"># (Use text editor to create empty file: uploads/.gitkeep)</span>
+
+<span class="comment"># Now Git can track the folder</span>
+<span class="command">git add uploads/.gitkeep</span>
+<span class="command">git commit -m "Add uploads directory"</span></code></pre>
+  
+  <div class="info-box">
+    <h4>Note</h4>
+    <p><code>.gitkeep</code> is not a Git feature - it is just a convention. You could name the file anything, but <code>.gitkeep</code> is the standard that everyone uses.</p>
+  </div>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;commands&#39;)">Previous: Basic Commands</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;undoing&#39;)">Next: Undoing Changes</a>
+  </div>
+</div>
+
+
+<!-- PAGE: UNDOING CHANGES -->
+<div class="page" id="page-undoing">
+  <h1>Undoing Changes</h1>
+  
+  <p>Everyone makes mistakes. Git provides several ways to undo changes depending on where the changes are (Working Directory, Staging Area, or Repository).</p>
+  
+  <h2 id="undoing-unstage">Unstaging Files</h2>
+  
+  <p>You staged a file by mistake and want to unstage it (move it back to Working Directory).</p>
+  
+  <pre><code><span class="comment"># Nobita accidentally staged wrong file</span>
+<span class="command">git add wrong-file.txt</span>
+
+<span class="comment"># Unstage it</span>
+<span class="command">git restore --staged wrong-file.txt</span>
+
+<span class="comment"># Or unstage ALL files</span>
+<span class="command">git restore --staged .</span></code></pre>
+  
+  <h2 id="undoing-discard">Discarding Changes in Working Directory</h2>
+  
+  <p>You made changes to a file but want to throw them away and go back to the last committed version.</p>
+  
+  <pre><code><span class="comment"># Discard changes in one file</span>
+<span class="command">git restore filename.txt</span>
+
+<span class="comment"># Discard ALL changes</span>
+<span class="command">git restore .</span></code></pre>
+  
+  <div class="danger-box">
+    <h4>Warning</h4>
+    <p><code>git restore</code> permanently deletes your uncommitted changes. They cannot be recovered! Use this command carefully.</p>
+  </div>
+  
+  <h2 id="undoing-commit">Undoing the Last Commit</h2>
+  
+  <p>You made a commit but realized it was too early or had a mistake.</p>
+  
+  <h3>Option 1: Keep Changes (Soft Reset)</h3>
+  <pre><code><span class="comment"># Undo last commit, keep changes in staging area</span>
+<span class="command">git reset --soft HEAD~1</span></code></pre>
+  
+  <h3>Option 2: Unstage Changes (Mixed Reset)</h3>
+  <pre><code><span class="comment"># Undo last commit, keep changes but unstage them</span>
+<span class="command">git reset HEAD~1</span></code></pre>
+  
+  <h3>Option 3: Delete Everything (Hard Reset)</h3>
+  <pre><code><span class="comment"># Undo last commit and DELETE all changes</span>
+<span class="command">git reset --hard HEAD~1</span></code></pre>
+  
+  <div class="danger-box">
+    <h4>Danger</h4>
+    <p><code>git reset --hard</code> permanently deletes your changes. Only use this if you are absolutely sure!</p>
+  </div>
+  
+  <h2 id="undoing-specific">Going Back to a Specific Commit</h2>
+  
+  <pre><code><span class="comment"># View commit history</span>
+<span class="command">git log --oneline</span>
+<span class="output">a1b2c3d Latest commit
+9e8f7g6 Previous commit
+5h4i3j2 Old commit
+1k2l3m4 Very old commit</span>
+
+<span class="comment"># Go back to specific commit</span>
+<span class="command">git reset 5h4i3j2</span></code></pre>
+  
+  <h2 id="undoing-revert">Reverting a Commit (Safe Way)</h2>
+  
+  <p>Instead of deleting history, create a NEW commit that undoes a previous commit. This is safer for code already pushed to GitHub.</p>
+  
+  <pre><code><span class="comment"># Safely undo a specific commit</span>
+<span class="command">git revert 9e8f7g6</span>
+
+<span class="comment"># Git opens editor for commit message</span>
+<span class="comment"># Save and close - a new "revert" commit is created</span></code></pre>
+  
+  <h2 id="undoing-example">Example: Nobita's Mistake</h2>
+  
+  <pre><code><span class="comment"># Nobita edits score.txt</span>
+<span class="comment"># He adds wrong data</span>
+
+<span class="comment"># He stages it</span>
+<span class="command">git add score.txt</span>
+
+<span class="comment"># Wait! He realizes the mistake</span>
+<span class="comment"># Unstage the file</span>
+<span class="command">git restore --staged score.txt</span>
+
+<span class="comment"># Discard the wrong changes</span>
+<span class="command">git restore score.txt</span>
+
+<span class="comment"># File is back to last committed version</span></code></pre>
+  
+  <div class="success-box">
+    <h4>Best Practice</h4>
+    <ul>
+      <li>Use <code>git revert</code> for commits already pushed to GitHub</li>
+      <li>Use <code>git reset</code> only for local commits not yet pushed</li>
+      <li>Never use <code>--hard</code> unless you are absolutely sure</li>
+    </ul>
+  </div>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;gitignore&#39;)">Previous: gitignore &amp; gitkeep</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;branches&#39;)">Next: Understanding Branches</a>
+  </div>
+</div>
+
+<!-- PAGE: UNDERSTANDING BRANCHES -->
+<div class="page" id="page-branches">
+  <h1>Understanding Branches</h1>
+  
+  <p>Branches are one of Git's most powerful features. They let you work on new features without breaking the main code.</p>
+  
+  <h2 id="branches-why">Why Use Branches?</h2>
+  
+  <p>Imagine this scenario:</p>
+  <ul>
+    <li>Gian's main code is working perfectly</li>
+    <li>Nobita wants to add a new login feature</li>
+    <li>While Nobita is working, the login feature is half-done and broken</li>
+    <li>If Nobita works directly on the main code, he will break it for everyone</li>
+  </ul>
+  
+  <p><strong>Solution:</strong> Nobita creates a separate branch to work on the login feature. The main code stays working while he experiments.</p>
+  
+  <h2 id="branches-visual">Visual Representation</h2>
+  
+  <div class="diagram">
+<pre>main branch (working code):
+  A --- B --- C --- D
+
+Nobita creates feature-login branch:
+  A --- B --- C --- D
+               \
+                E --- F (Nobita's work)
+
+When done, merge back to main:
+  A --- B --- C --- D --- G (merged)
+               \         /
+                E ----- F
+</pre>
+  </div>
+  
+  <h2 id="branches-create">Creating a Branch</h2>
+  
+  <pre><code><span class="comment"># Create a new branch</span>
+<span class="command">git branch feature-login</span>
+
+<span class="comment"># Switch to that branch</span>
+<span class="command">git checkout feature-login</span>
+
+<span class="comment"># Or do both in one command</span>
+<span class="command">git checkout -b feature-login</span>
+
+<span class="output">Switched to a new branch 'feature-login'</span></code></pre>
+  
+  <h2 id="branches-list">Listing Branches</h2>
+  
+  <pre><code><span class="command">git branch</span>
+
+<span class="output">  main
+* feature-login</span>
+
+<span class="comment"># The * shows which branch you are currently on</span></code></pre>
+  
+  <h2 id="branches-switch">Switching Branches</h2>
+  
+  <pre><code><span class="comment"># Switch to main branch</span>
+<span class="command">git checkout main</span>
+
+<span class="comment"># Switch to feature branch</span>
+<span class="command">git checkout feature-login</span></code></pre>
+  
+  <h2 id="branches-example">Complete Example: Nobita's Login Feature</h2>
+  
+  <pre><code><span class="comment"># Nobita is on main branch</span>
+<span class="command">git checkout main</span>
+
+<span class="comment"># Create and switch to new branch</span>
+<span class="command">git checkout -b feature-login</span>
+
+<span class="comment"># Nobita creates login.txt file</span>
+<span class="comment"># Content: "Login Page Code"</span>
+
+<span class="comment"># Stage and commit on feature branch</span>
+<span class="command">git add login.txt</span>
+<span class="command">git commit -m "Add login page"</span>
+
+<span class="comment"># Make more changes</span>
+<span class="comment"># Edit login.txt, add more code</span>
+
+<span class="command">git add login.txt</span>
+<span class="command">git commit -m "Complete login functionality"</span>
+
+<span class="comment"># View commits on this branch</span>
+<span class="command">git log --oneline</span>
+<span class="output">f3e2d1c Complete login functionality
+a9b8c7d Add login page
+5h4i3j2 (main) Previous main commit</span>
+
+<span class="comment"># Switch back to main - login.txt disappears!</span>
+<span class="command">git checkout main</span>
+
+<span class="comment"># Switch back to feature-login - login.txt reappears!</span>
+<span class="command">git checkout feature-login</span></code></pre>
+  
+  <h2 id="branches-delete">Deleting a Branch</h2>
+  
+  <pre><code><span class="comment"># Delete a branch (after merging)</span>
+<span class="command">git branch -d feature-login</span>
+
+<span class="comment"># Force delete (even if not merged)</span>
+<span class="command">git branch -D feature-login</span></code></pre>
+  
+  <h2 id="branches-team">Our Team's Branching Strategy</h2>
+  
+  <div class="diagram">
+<pre>main branch (Gian manages):
+  A --- B --- C
+
+Nobita's branches:
+  - feature-login
+  - feature-ui-design
+
+Suneo's branches:
+  - feature-database
+  - feature-api
+
+Everyone works independently without breaking main code!
+</pre>
+  </div>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;undoing&#39;)">Previous: Undoing Changes</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;merging&#39;)">Next: Merging Branches</a>
+  </div>
+</div>
+
+
+<!-- PAGE: MERGING BRANCHES -->
+<div class="page" id="page-merging">
+  <h1>Merging Branches</h1>
+
+  <p>When you finish working on a feature branch, you bring those changes back into the main branch. This is called merging. Git has four types of merges — each works differently depending on the situation.</p>
+
+  <div class="info-box">
+    <h4>Setup: Create the Project First</h4>
+    <p>Before practising any merge type, run this once to create the project folder:</p>
+    <pre><code><span class="command">mkdir git-merge-demo</span>
+<span class="command">cd git-merge-demo</span>
+<span class="command">git init</span>
+
+<span class="comment"># Create the first file and make the initial commit</span>
+<span class="command">echo "Initial Code" &gt; app.txt</span>
+<span class="command">git add .</span>
+<span class="command">git commit -m "initial commit"</span></code></pre>
+  </div>
+
+  <div class="info-box">
+    <h4>Tip: Avoid Vim Editor During Merge</h4>
+    <p>During a three-way merge, Git opens Vim to ask for a commit message. To skip that, always pass <code>-m</code> with your message directly:</p>
+    <pre><code><span class="command">git merge login-feature -m "three way merge completed"</span></code></pre>
+    <p>If Vim opens anyway, press <code>ESC</code>, then type <code>:wq</code> and press <code>Enter</code> to save and exit. To cancel without saving, type <code>:q!</code>.</p>
+  </div>
+
+  <h2 id="merging-ff">1. Fast Forward Merge</h2>
+
+  <p>This is the simplest merge. It happens when the main branch has no new commits since you created the feature branch. Git simply moves the main pointer forward — no extra merge commit is created.</p>
+
+  <h3>When does it happen?</h3>
+  <p>Gian creates a feature branch, adds a file, and commits. Meanwhile, nobody touches main. When Gian merges back, Git just slides main forward.</p>
+
+  <div class="diagram">
+<pre>Before merge:
+
+main:     A
+           \
+feature:    B --- C
+
+After fast-forward merge:
+
+main:     A --- B --- C
+</pre>
+  </div>
+
+  <h3>Practical Steps</h3>
+  <pre><code><span class="comment"># Step 1: Create and switch to feature branch</span>
+<span class="command">git switch -c feature</span>
+
+<span class="comment"># Step 2: Create a new file and commit</span>
+<span class="command">echo "Feature Code" &gt; feature.txt</span>
+<span class="command">git add .</span>
+<span class="command">git commit -m "added feature file"</span>
+
+<span class="comment"># Step 3: Switch back to main</span>
+<span class="command">git switch main</span>
+
+<span class="comment"># Step 4: Merge</span>
+<span class="command">git merge feature</span>
+
+<span class="output">Updating a1b2c3d..f4e5d6c
+Fast-forward
+ feature.txt | 1 +
+ 1 file changed, 1 insertion(+)</span></code></pre>
+
+  <div class="success-box">
+    <h4>Key Point</h4>
+    <p>The output says <strong>Fast-forward</strong>. No merge commit was created. Git just moved the main branch pointer ahead.</p>
+  </div>
+
+  <pre><code><span class="comment"># Check the graph</span>
+<span class="command">git log --oneline --graph --all</span>
+
+<span class="output">* f4e5d6c (HEAD -&gt; main, feature) added feature file
+* a1b2c3d initial commit</span></code></pre>
+
+  <h2 id="merging-threeway">2. Three-Way Merge</h2>
+
+  <p>This happens when both the main branch and the feature branch have new commits after the branch was created. Git cannot simply slide the pointer forward — it has to create a new <strong>merge commit</strong> that combines both histories.</p>
+
+  <h3>When does it happen?</h3>
+  <p>Nobita creates a login-feature branch and adds <code>login.txt</code>. Meanwhile, Gian also adds <code>main.txt</code> on main. Now both branches have diverged. Git needs a merge commit to join them.</p>
+
+  <div class="diagram">
+<pre>Before merge:
+
+main:          A --- B --- C
+                        \
+login-feature:            D
+
+After three-way merge:
+
+main:          A --- B --- C --- M  (M = merge commit)
+                        \       /
+login-feature:            D ---
+</pre>
+  </div>
+
+  <h3>Practical Steps</h3>
+  <pre><code><span class="comment"># Step 1: Create login-feature branch</span>
+<span class="command">git switch -c login-feature</span>
+
+<span class="comment"># Step 2: Add a file on the feature branch</span>
+<span class="command">echo "Login Feature" &gt; login.txt</span>
+<span class="command">git add .</span>
+<span class="command">git commit -m "added login"</span>
+
+<span class="comment"># Step 3: Switch back to main and add a different file</span>
+<span class="command">git switch main</span>
+<span class="command">echo "Main Update" &gt; main.txt</span>
+<span class="command">git add .</span>
+<span class="command">git commit -m "main updated"</span>
+
+<span class="comment"># Step 4: Merge with -m to avoid Vim editor</span>
+<span class="command">git merge login-feature -m "three way merge completed"</span>
+
+<span class="output">Merge made by the 'ort' strategy.
+ login.txt | 1 +
+ 1 file changed, 1 insertion(+)</span></code></pre>
+
+  <div class="success-box">
+    <h4>Key Point</h4>
+    <p>The output says <strong>Merge made by the 'ort' strategy</strong>. A new merge commit M was created that has two parents — one from main and one from login-feature.</p>
+  </div>
+
+  <pre><code><span class="comment"># Check the graph</span>
+<span class="command">git log --oneline --graph --all</span>
+
+<span class="output">*   e7f8a9b (HEAD -&gt; main) three way merge completed
+|\
+| * c3d4e5f (login-feature) added login
+* | b2c3d4e main updated
+|/
+* a1b2c3d initial commit</span></code></pre>
+
+  <h2 id="merging-squash">3. Squash Merge</h2>
+
+  <p>Squash merge takes all the commits from a feature branch and <strong>squashes them into one single commit</strong> on main. The individual commits from the feature branch are not preserved — only the final result is added as one clean commit.</p>
+
+  <h3>When to use it?</h3>
+  <p>Suneo worked on the UI and made 3 small commits — navbar, footer, sidebar. Instead of cluttering main's history with 3 commits, Gian squashes them into one clean commit called "UI Feature Complete".</p>
+
+  <div class="diagram">
+<pre>Feature branch before squash:
+
+ui-feature:   A --- B --- C --- D --- E
+                    (navbar) (footer) (sidebar)
+
+After squash merge onto main:
+
+main:         A --- B --- F
+                          |
+                    (UI Feature Complete)
+                    All 3 commits combined into one
+</pre>
+  </div>
+
+  <h3>Practical Steps</h3>
+  <pre><code><span class="comment"># Step 1: Create ui-feature branch</span>
+<span class="command">git switch -c ui-feature</span>
+
+<span class="comment"># Step 2: Make multiple commits</span>
+<span class="command">echo "Navbar" &gt; navbar.txt</span>
+<span class="command">git add .</span>
+<span class="command">git commit -m "navbar added"</span>
+
+<span class="command">echo "Footer" &gt; footer.txt</span>
+<span class="command">git add .</span>
+<span class="command">git commit -m "footer added"</span>
+
+<span class="command">echo "Sidebar" &gt; sidebar.txt</span>
+<span class="command">git add .</span>
+<span class="command">git commit -m "sidebar added"</span>
+
+<span class="comment"># Step 3: Switch to main</span>
+<span class="command">git switch main</span>
+
+<span class="comment"># Step 4: Squash merge (stages all changes but does NOT commit yet)</span>
+<span class="command">git merge --squash ui-feature</span>
+
+<span class="output">Squash commit -- not updating HEAD
+Automatic merge went well; stopped before committing as requested</span>
+
+<span class="comment"># Step 5: Commit manually with one clean message</span>
+<span class="command">git commit -m "UI Feature Complete"</span></code></pre>
+
+  <div class="success-box">
+    <h4>Key Point</h4>
+    <p><code>--squash</code> stages all the changes but does NOT create a commit automatically. You must run <code>git commit</code> yourself with a clean message. The 3 individual commits from ui-feature will not appear in main's history.</p>
+  </div>
+
+  <pre><code><span class="comment"># Check the graph — notice only one clean commit on main</span>
+<span class="command">git log --oneline --graph --all</span>
+
+<span class="output">* d1e2f3a (HEAD -&gt; main) UI Feature Complete
+* a1b2c3d initial commit</span></code></pre>
+
+  <h2 id="merging-octopus">4. Octopus Merge</h2>
+
+  <p>Octopus merge lets you merge <strong>more than two branches at the same time</strong> in a single command. Git creates one merge commit that has multiple parents — one for each branch merged.</p>
+
+  <h3>When to use it?</h3>
+  <p>Gian, Nobita, and Suneo each worked on separate independent features — feature-a, feature-b, feature-c. None of them conflict with each other. Gian merges all three into main in one go.</p>
+
+  <div class="diagram">
+<pre>Before octopus merge:
+
+feature-a:   A --- X
+feature-b:   A --- Y
+feature-c:   A --- Z
+
+After octopus merge:
+
+             X
+            / \
+main:  A---+   M  (one merge commit, 3 parents)
+            \ /|
+             Y |
+              \|
+               Z
+</pre>
+  </div>
+
+  <h3>Practical Steps</h3>
+  <pre><code><span class="comment"># Branch 1: feature-a</span>
+<span class="command">git switch -c feature-a</span>
+<span class="command">echo "A Feature" &gt; a.txt</span>
+<span class="command">git add .</span>
+<span class="command">git commit -m "feature a"</span>
+
+<span class="comment"># Branch 2: feature-b</span>
+<span class="command">git switch main</span>
+<span class="command">git switch -c feature-b</span>
+<span class="command">echo "B Feature" &gt; b.txt</span>
+<span class="command">git add .</span>
+<span class="command">git commit -m "feature b"</span>
+
+<span class="comment"># Branch 3: feature-c</span>
+<span class="command">git switch main</span>
+<span class="command">git switch -c feature-c</span>
+<span class="command">echo "C Feature" &gt; c.txt</span>
+<span class="command">git add .</span>
+<span class="command">git commit -m "feature c"</span>
+
+<span class="comment"># Switch to main and merge all three at once</span>
+<span class="command">git switch main</span>
+<span class="command">git merge feature-a feature-b feature-c -m "octopus merge all features"</span>
+
+<span class="output">Trying simple merge with feature-a
+Trying simple merge with feature-b
+Trying simple merge with feature-c
+Merge made by the 'octopus' strategy.</span></code></pre>
+
+  <div class="success-box">
+    <h4>Key Point</h4>
+    <p>The output says <strong>Merge made by the 'octopus' strategy</strong>. One merge commit was created with three parents. This only works when there are no conflicts between the branches.</p>
+  </div>
+
+  <pre><code><span class="comment"># Check the full graph</span>
+<span class="command">git log --oneline --graph --all</span>
+
+<span class="output">*-.   f1a2b3c (HEAD -&gt; main) octopus merge all features
+|\ \
+| | * e9d8c7b (feature-c) feature c
+| * | d7c6b5a (feature-b) feature b
+| |/
+* | c5b4a3d (feature-a) feature a
+|/
+* a1b2c3d initial commit</span></code></pre>
+
+  <h2 id="merging-comparison">Comparison Table</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Merge Type</th>
+        <th>Merge Commit?</th>
+        <th>When to Use</th>
+        <th>Command</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Fast Forward</strong></td>
+        <td>No</td>
+        <td>Feature branch only, main untouched</td>
+        <td><code>git merge feature</code></td>
+      </tr>
+      <tr>
+        <td><strong>Three-Way</strong></td>
+        <td>Yes</td>
+        <td>Both branches have new commits</td>
+        <td><code>git merge feature -m "msg"</code></td>
+      </tr>
+      <tr>
+        <td><strong>Squash</strong></td>
+        <td>One clean commit</td>
+        <td>Clean history, hide messy commits</td>
+        <td><code>git merge --squash feature</code></td>
+      </tr>
+      <tr>
+        <td><strong>Octopus</strong></td>
+        <td>Yes (multi-parent)</td>
+        <td>Merge 3+ independent branches at once</td>
+        <td><code>git merge a b c -m "msg"</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;branches&#39;)">Previous: Understanding Branches</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;conflicts&#39;)">Next: Merge Conflicts</a>
+  </div>
+</div>
+
+<!-- PAGE: MERGE CONFLICTS -->
+<div class="page" id="page-conflicts">
+  <h1>Merge Conflicts</h1>
+  
+  <p>A merge conflict happens when two people edit the SAME lines in the SAME file. Git does not know which version to keep, so it asks you to decide.</p>
+  
+  <h2 id="conflicts-when">When Do Conflicts Happen?</h2>
+  
+  <div class="warning-box">
+    <h4>Conflict Scenario</h4>
+    <p><strong>Gian</strong> edits <code>score.txt</code> line 1:</p>
+    <pre><code>Total Score: 100</code></pre>
+    
+    <p><strong>Nobita</strong> also edits <code>score.txt</code> line 1:</p>
+    <pre><code>Total Score: 200</code></pre>
+    
+    <p>When they try to merge, Git says: "I don't know which one to keep!"</p>
+  </div>
+  
+  <h2 id="conflicts-example">Creating a Conflict (Example)</h2>
+  
+  <pre><code><span class="comment"># Gian on main branch</span>
+<span class="command">git checkout main</span>
+<span class="comment"># Edit score.txt, line 1: "Total Score: 100"</span>
+<span class="command">git add score.txt</span>
+<span class="command">git commit -m "Set score to 100"</span>
+
+<span class="comment"># Nobita on feature branch</span>
+<span class="command">git checkout -b feature-scoring</span>
+<span class="comment"># Edit score.txt, line 1: "Total Score: 200"</span>
+<span class="command">git add score.txt</span>
+<span class="command">git commit -m "Set score to 200"</span>
+
+<span class="comment"># Try to merge</span>
+<span class="command">git checkout main</span>
+<span class="command">git merge feature-scoring</span>
+
+<span class="output">Auto-merging score.txt
+CONFLICT (content): Merge conflict in score.txt
+Automatic merge failed; fix conflicts and then commit the result.</span></code></pre>
+  
+  <h2 id="conflicts-markers">What a Conflict Looks Like</h2>
+  
+  <p>Git modifies the conflicted file to show both versions:</p>
+  
+  <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Total Score: 100
+=======
+Total Score: 200
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-scoring</code></pre>
+  
+  <div class="info-box">
+    <h4>Understanding Conflict Markers</h4>
+    <ul>
+      <li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> - Your current branch (main)</li>
+      <li><code>=======</code> - Separator between the two versions</li>
+      <li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-scoring</code> - The branch you are merging</li>
+    </ul>
+  </div>
+  
+  <h2 id="conflicts-resolve">Resolving the Conflict</h2>
+  
+  <h3>Step 1: Open the File</h3>
+  <p>Open <code>score.txt</code> in your text editor. You will see the conflict markers.</p>
+  
+  <h3>Step 2: Decide What to Keep</h3>
+  <p>You have three options:</p>
+  <ul>
+    <li>Keep your version (100)</li>
+    <li>Keep their version (200)</li>
+    <li>Keep both or write something new</li>
+  </ul>
+  
+  <p>Let's say Gian decides to keep Nobita's version (200). Edit the file to:</p>
+  <pre><code>Total Score: 200</code></pre>
+  
+  <p><strong>Important:</strong> Remove ALL conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>)</p>
+  
+  <h3>Step 3: Stage the Resolved File</h3>
+  <pre><code><span class="command">git add score.txt</span></code></pre>
+  
+  <h3>Step 4: Complete the Merge</h3>
+  <pre><code><span class="command">git commit -m "Resolve merge conflict - use score 200"</span>
+
+<span class="output">[main a1b2c3d] Resolve merge conflict - use score 200</span></code></pre>
+  
+  <h2 id="conflicts-check">Checking for Conflicts</h2>
+  
+  <pre><code><span class="comment"># See which files have conflicts</span>
+<span class="command">git status</span>
+
+<span class="output">Unmerged paths:
+  both modified:   score.txt</span></code></pre>
+  
+  <h2 id="conflicts-abort">Aborting a Merge</h2>
+  
+  <p>If you want to cancel the merge and start over:</p>
+  
+  <pre><code><span class="command">git merge --abort</span></code></pre>
+  
+  <h2 id="conflicts-team">Real Team Conflict Example</h2>
+  
+  <pre><code><span class="comment"># Nobita and Suneo both edited homepage.txt</span>
+
+<span class="comment"># Nobita's version (line 1):</span>
+School Project Tracker - Login System
+
+<span class="comment"># Suneo's version (line 1):</span>
+School Project Tracker
+
+<span class="comment"># After merge attempt, file shows:</span>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+School Project Tracker - Login System
+=======
+School Project Tracker
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-backend
+
+<span class="comment"># Gian decides to combine both ideas:</span>
+School Project Tracker - Login System
+
+<span class="comment"># Resolve:</span>
+<span class="command">git add homepage.txt</span>
+<span class="command">git commit -m "Merge titles from both features"</span></code></pre>
+  
+  <div class="success-box">
+    <h4>Conflict Resolution Steps Summary</h4>
+    <ol>
+      <li>Run <code>git status</code> to see conflicted files</li>
+      <li>Open each file and look for <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> markers</li>
+      <li>Decide which code to keep</li>
+      <li>Remove all conflict markers</li>
+      <li>Save the file</li>
+      <li><code>git add filename</code></li>
+      <li><code>git commit</code></li>
+    </ol>
+  </div>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;merging&#39;)">Previous: Merging Branches</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;github-intro&#39;)">Next: What is GitHub</a>
+  </div>
+</div>
+
+
+<!-- PAGE: WHAT IS GITHUB -->
+<div class="page" id="page-github-intro">
+  <h1>What is GitHub?</h1>
+  
+  <p>Now that you understand Git, let's learn about GitHub - the place where developers store and share their code online.</p>
+  
+  <h2 id="github-intro-difference">Git vs GitHub</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Git</th>
+        <th>GitHub</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Software on your computer</td>
+        <td>Website (github.com)</td>
+      </tr>
+      <tr>
+        <td>Tracks changes locally</td>
+        <td>Stores code online</td>
+      </tr>
+      <tr>
+        <td>Works offline</td>
+        <td>Requires internet</td>
+      </tr>
+      <tr>
+        <td>Free and open source</td>
+        <td>Free for public projects</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h2 id="github-intro-why">Why Use GitHub?</h2>
+  
+  <ul>
+    <li><strong>Backup:</strong> Your code is safely stored in the cloud</li>
+    <li><strong>Collaboration:</strong> Multiple people can work on the same project</li>
+    <li><strong>Sharing:</strong> Share your code with the world</li>
+    <li><strong>Portfolio:</strong> Show your work to employers and colleges</li>
+    <li><strong>Open Source:</strong> Contribute to projects used by millions</li>
+  </ul>
+  
+  <h2 id="github-intro-how">How Our Team Will Use GitHub</h2>
+  
+  <div class="diagram">
+<pre>Gian's Computer          GitHub.com          Nobita's Computer
+(Local Git Repo)      (Remote Git Repo)      (Local Git Repo)
+      |                      |                      |
+      |---- git push -------&gt;|                      |
+      |                      |&lt;----- git clone -----|
+      |                      |                      |
+      |&lt;---- git pull -------|------- git push ----&gt;|
+      |                      |                      |
+                             |
+                             |
+                    Suneo's Computer
+                   (Local Git Repo)
+</pre>
+  </div>
+  
+  <p>GitHub acts as the central hub where everyone syncs their work.</p>
+  
+  <h2 id="github-intro-features">Key GitHub Features</h2>
+  
+  <ul>
+    <li><strong>Repositories:</strong> Store your projects</li>
+    <li><strong>Issues:</strong> Track bugs and feature requests</li>
+    <li><strong>Pull Requests:</strong> Propose changes to code</li>
+    <li><strong>Actions:</strong> Automate tasks</li>
+    <li><strong>Pages:</strong> Host websites for free</li>
+  </ul>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;conflicts&#39;)">Previous: Merge Conflicts</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;github-account&#39;)">Next: Creating Account</a>
+  </div>
+</div>
+
+<!-- PAGE: CREATING GITHUB ACCOUNT -->
+<div class="page" id="page-github-account">
+  <h1>Creating a GitHub Account</h1>
+
+  <p>Let's create your GitHub account. It is free and takes only a few minutes.</p>
+
+  <h2 id="github-account-signup">Sign Up Steps</h2>
+
+  <ol>
+    <li>Open your web browser and go to <code>https://github.com</code></li>
+    <li>Click the <strong>Sign up</strong> button in the top right corner</li>
+    <li>Enter your email address and click <strong>Continue</strong></li>
+    <li>Create a strong password (at least 8 characters) and click <strong>Continue</strong></li>
+    <li>Choose a <strong>username</strong> - this is your public identity on GitHub</li>
+    <li>Complete the puzzle verification to prove you are not a robot</li>
+    <li>Check your email inbox - GitHub sends you a verification code</li>
+    <li>Enter that code on the GitHub website</li>
+    <li>Your account is ready!</li>
+  </ol>
+
+  <div class="info-box">
+    <h4>Choosing Your Username</h4>
+    <p>Your GitHub username is visible to everyone including future employers and colleges. Choose wisely:</p>
+    <ul>
+      <li>Use your real name or a professional variation: <code>nobita-nobi</code> or <code>nobitadev</code></li>
+      <li>Avoid random numbers or funny words</li>
+      <li>Keep it simple and memorable</li>
+    </ul>
+  </div>
+
+  <h2 id="github-account-gitconfig">How git config Connects to GitHub</h2>
+
+  <p>Remember when you ran these two commands during First-Time Setup?</p>
+
+  <pre><code><span class="command">git config --global user.name "Nobita Nobi"</span>
+<span class="command">git config --global user.email "nobita@doraemon.com"</span></code></pre>
+
+  <p>These are not just labels. They play a very specific role when you work with GitHub.</p>
+
+  <h3>What user.name does</h3>
+  <p>Every commit you make is stamped with this name. When Nobita pushes code to GitHub, every commit in the repository shows <strong>"Nobita Nobi"</strong> as the author. This is how teammates know who wrote what.</p>
+
+  <div class="diagram">
+<pre>git log --oneline on GitHub shows:
+
+a1b2c3d  Nobita Nobi   "Add login page"       2 hours ago
+9e8f7g6  Gian          "Initial commit"       1 day ago
+5h4i3j2  Suneo         "Add database file"    2 days ago
+
+The name comes from: git config --global user.name
+</pre>
+  </div>
+
+  <h3>What user.email does</h3>
+  <p>The email in git config must match the email you used to sign up on GitHub. This is how GitHub links your commits to your GitHub profile. If the emails do not match, your commits will not show up on your GitHub profile graph.</p>
+
+  <div class="warning-box">
+    <h4>Important: Email Must Match</h4>
+    <p>Nobita signed up on GitHub with <code>nobita@doraemon.com</code>. So his git config must also use the same email:</p>
+    <pre><code><span class="command">git config --global user.email "nobita@doraemon.com"</span></code></pre>
+    <p>If he uses a different email in git config, his commits will appear as "ghost commits" — not linked to his GitHub account.</p>
+  </div>
+
+  <h3>Verify Your Config</h3>
+  <pre><code><span class="command">git config --list</span>
+
+<span class="output">user.name=Nobita Nobi
+user.email=nobita@doraemon.com</span></code></pre>
+
+  <h2 id="github-account-profile">Setting Up Your Profile</h2>
+
+  <ol>
+    <li>Click your profile picture in the top-right corner</li>
+    <li>Go to <strong>Settings</strong></li>
+    <li>Add your full name</li>
+    <li>Add a short bio</li>
+    <li>Optionally add a profile picture</li>
+  </ol>
+
+  <h2 id="github-account-example">Our Team's Accounts</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Character</th>
+        <th>GitHub Username</th>
+        <th>git config user.name</th>
+        <th>git config user.email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Gian</td>
+        <td><code>gian-doraemon</code></td>
+        <td><code>Gian</code></td>
+        <td><code>gian@doraemon.com</code></td>
+      </tr>
+      <tr>
+        <td>Nobita</td>
+        <td><code>nobita-nobi</code></td>
+        <td><code>Nobita Nobi</code></td>
+        <td><code>nobita@doraemon.com</code></td>
+      </tr>
+      <tr>
+        <td>Suneo</td>
+        <td><code>suneo-honekawa</code></td>
+        <td><code>Suneo</code></td>
+        <td><code>suneo@doraemon.com</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;github-intro&#39;)">Previous: What is GitHub</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;github-repo&#39;)">Next: Creating Repository</a>
+  </div>
+</div>
+
+<!-- PAGE: CREATING REPOSITORY -->
+<div class="page" id="page-github-repo">
+  <h1>Creating a Repository on GitHub</h1>
+  
+  <p>A repository on GitHub is where your project lives online.</p>
+  
+  <h2 id="github-repo-create">Creating a New Repository</h2>
+  
+  <ol>
+    <li>Log in to GitHub</li>
+    <li>Click the <strong>+</strong> icon near the top-right of the page</li>
+    <li>Select <strong>New repository</strong> from the dropdown</li>
+    <li>Enter a repository name (example: <code>school-project</code>)</li>
+    <li>Add a description (optional): "School Project score tracking application"</li>
+    <li>Choose <strong>Public</strong> (anyone can see) or <strong>Private</strong> (only you)</li>
+    <li>Do NOT check "Add a README file" (we will add it later)</li>
+    <li>Click <strong>Create repository</strong></li>
+  </ol>
+  
+  <p>Your repository is now live at: <code>https://github.com/your-username/school-project</code></p>
+  
+  <h2 id="github-repo-connect">Connecting Local Repository to GitHub</h2>
+  
+  <p>You have a project on your computer. Now let's connect it to GitHub.</p>
+  
+  <pre><code><span class="comment"># Navigate to your project folder</span>
+<span class="command">cd school-project</span>
+
+<span class="comment"># Add GitHub as remote (replace with your URL)</span>
+<span class="command">git remote add origin https://github.com/gian-doraemon/school-project.git</span>
+
+<span class="comment"># Verify the connection</span>
+<span class="command">git remote -v</span>
+
+<span class="output">origin  https://github.com/gian-doraemon/school-project.git (fetch)
+origin  https://github.com/gian-doraemon/school-project.git (push)</span></code></pre>
+  
+  <div class="info-box">
+    <h4>What is "origin"?</h4>
+    <p><code>origin</code> is just a nickname for the GitHub URL. Instead of typing the full URL every time, Git lets you type <code>origin</code> as a shortcut. This is a universal standard - every developer uses it.</p>
+  </div>
+  
+  <h2 id="github-repo-push">Pushing Code to GitHub</h2>
+  
+  <pre><code><span class="comment"># Push your code to GitHub</span>
+<span class="command">git push -u origin main</span>
+
+<span class="output">Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 1.2 KiB | 1.2 MiB/s, done.
+To https://github.com/gian-doraemon/school-project.git
+ * [new branch]      main -&gt; main</span></code></pre>
+  
+  <p>Now refresh your GitHub repository page - your code is online!</p>
+  
+  <h2 id="github-repo-clone">Cloning a Repository</h2>
+  
+  <p>Nobita and Suneo want to work on the project. They clone it:</p>
+  
+  <pre><code><span class="comment"># Clone the repository</span>
+<span class="command">git clone https://github.com/gian-doraemon/school-project.git</span>
+
+<span class="output">Cloning into 'school-project'...
+remote: Enumerating objects: 10, done.
+Receiving objects: 100% (10/10), done.</span>
+
+<span class="comment"># Navigate into the project</span>
+<span class="command">cd school-project</span></code></pre>
+  
+  <p>Now Nobita and Suneo have a complete copy of the project on their computers!</p>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;github-account&#39;)">Previous: Creating Account</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;ssh-setup&#39;)">Next: HTTPS vs SSH</a>
+  </div>
+</div>
+
+<!-- PAGE: HTTPS VS SSH -->
+<div class="page" id="page-ssh-setup">
+  <h1>HTTPS vs SSH</h1>
+
+  <p>When you create a repository on GitHub and want to connect it to your computer, GitHub gives you two types of links. Understanding the difference is important.</p>
+
+  <h2 id="ssh-links">The Two Links GitHub Gives You</h2>
+
+  <p>After creating a repository, GitHub shows you two URLs:</p>
+
+  <div class="diagram">
+<pre>HTTPS link:
+https://github.com/nobita-nobi/school-project.git
+
+SSH link:
+git@github.com:nobita-nobi/school-project.git
+</pre>
+  </div>
+
+  <h2 id="ssh-comparison">HTTPS vs SSH: The Difference</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Point</th>
+        <th>HTTPS</th>
+        <th>SSH</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>How it looks</td>
+        <td><code>https://github.com/...</code></td>
+        <td><code>git@github.com:...</code></td>
+      </tr>
+      <tr>
+        <td>Authentication</td>
+        <td>Username + Personal Access Token every time</td>
+        <td>SSH key pair — set up once, never again</td>
+      </tr>
+      <tr>
+        <td>Ease of setup</td>
+        <td>Easy — no setup needed</td>
+        <td>Takes 5 minutes to set up once</td>
+      </tr>
+      <tr>
+        <td>Daily use</td>
+        <td>Asks for credentials on every push</td>
+        <td>Never asks again after setup</td>
+      </tr>
+      <tr>
+        <td>Security</td>
+        <td>Good</td>
+        <td>Better — key-based authentication</td>
+      </tr>
+      <tr>
+        <td>Recommended for</td>
+        <td>Quick one-time use</td>
+        <td>Daily development work</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="success-box">
+    <h4>Which One to Use?</h4>
+    <p>Use <strong>SSH</strong> for your daily work. You set it up once and Git never asks for your password again. Every professional developer uses SSH.</p>
+    <p>Use <strong>HTTPS</strong> only when you are on someone else's computer and do not want to set up SSH keys there.</p>
+  </div>
+
+  <h2 id="ssh-concept">How SSH Works: Private and Public Key</h2>
+
+  <p>SSH uses a pair of keys — like a lock and a key:</p>
+
+  <div class="diagram">
+<pre>Your Computer                        GitHub
+--------------                       ------
+Private Key                          Public Key
+(stays on your                       (you upload this
+ computer, never                      to GitHub once)
+ share this)
+      |                                    |
+      |-------- encrypted handshake -------|
+      |                                    |
+Git says: "I have the private key"
+GitHub checks: "Does it match the public key I have?"
+GitHub says: "Yes, you are allowed in."
+
+No password needed. Ever.
+</pre>
+  </div>
+
+  <ul>
+    <li><strong>Private key</strong> — stays on your computer only. Never share it with anyone. Think of it as your house key.</li>
+    <li><strong>Public key</strong> — you give this to GitHub. Think of it as the lock on your door. Anyone can see the lock, but only your key opens it.</li>
+  </ul>
+
+  <h2 id="ssh-generate">Generating Your SSH Key</h2>
+
+  <p>Run this command in your terminal. Replace the email with your GitHub email:</p>
+
+  <pre><code><span class="command">ssh-keygen -t ed25519 -C "nobita@doraemon.com"</span></code></pre>
+
+  <p>Terminal will ask three questions. Press <strong>Enter</strong> for all three to accept defaults:</p>
+
+  <pre><code><span class="output">Enter file in which to save the key: </span><span class="comment">(press Enter)</span>
+<span class="output">Enter passphrase: </span><span class="comment">(press Enter)</span>
+<span class="output">Enter same passphrase again: </span><span class="comment">(press Enter)</span>
+
+<span class="output">Your identification has been saved in /Users/nobita/.ssh/id_ed25519
+Your public key has been saved in /Users/nobita/.ssh/id_ed25519.pub</span></code></pre>
+
+  <p>Two files are now created in your <code>.ssh</code> folder:</p>
+  <ul>
+    <li><code>id_ed25519</code> — your private key. Never share this.</li>
+    <li><code>id_ed25519.pub</code> — your public key. This goes to GitHub.</li>
+  </ul>
+
+  <h2 id="ssh-agent">Add Key to SSH Agent</h2>
+
+  <pre><code><span class="comment"># Start the SSH agent</span>
+<span class="command">eval "$(ssh-agent -s)"</span>
+
+<span class="output">Agent pid 12345</span>
+
+<span class="comment"># Add your private key to the agent</span>
+<span class="command">ssh-add ~/.ssh/id_ed25519</span>
+
+<span class="output">Identity added: /Users/nobita/.ssh/id_ed25519</span></code></pre>
+
+  <h2 id="ssh-copy">Copy Your Public Key</h2>
+
+  <p>Print the public key so you can copy it:</p>
+
+  <pre><code><span class="comment"># Mac / Linux</span>
+<span class="command">cat ~/.ssh/id_ed25519.pub</span>
+
+<span class="output">ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAA... nobita@doraemon.com</span></code></pre>
+
+  <p>Select the entire output and copy it.</p>
+
+  <h2 id="ssh-github">Add Public Key to GitHub</h2>
+
+  <ol>
+    <li>Go to <code>https://github.com</code> and log in</li>
+    <li>Click your profile picture → <strong>Settings</strong></li>
+    <li>In the left menu click <strong>SSH and GPG keys</strong></li>
+    <li>Click <strong>New SSH key</strong></li>
+    <li>Give it a title like <code>My Laptop</code></li>
+    <li>Paste your public key in the Key field</li>
+    <li>Click <strong>Add SSH key</strong></li>
+  </ol>
+
+  <h2 id="ssh-test">Test the Connection</h2>
+
+  <pre><code><span class="command">ssh -T git@github.com</span>
+
+<span class="output">Hi nobita-nobi! You've successfully authenticated,
+but GitHub does not provide shell access.</span></code></pre>
+
+  <p>If you see your GitHub username in that message, SSH is working perfectly.</p>
+
+  <h2 id="ssh-use">Using SSH When Cloning or Adding Remote</h2>
+
+  <p>Now always use the SSH link instead of HTTPS:</p>
+
+  <pre><code><span class="comment"># Clone using SSH (not HTTPS)</span>
+<span class="command">git clone git@github.com:nobita-nobi/school-project.git</span>
+
+<span class="comment"># Add remote using SSH</span>
+<span class="command">git remote add origin git@github.com:nobita-nobi/school-project.git</span></code></pre>
+
+  <p>From now on, every <code>git push</code> and <code>git pull</code> will work without asking for a password.</p>
+
+  <h2 id="ssh-switch">Switch Existing Repo from HTTPS to SSH</h2>
+
+  <p>If you already added a remote with HTTPS and want to switch to SSH:</p>
+
+  <pre><code><span class="comment"># Check current remote</span>
+<span class="command">git remote -v</span>
+<span class="output">origin  https://github.com/nobita-nobi/school-project.git (fetch)
+origin  https://github.com/nobita-nobi/school-project.git (push)</span>
+
+<span class="comment"># Change it to SSH</span>
+<span class="command">git remote set-url origin git@github.com:nobita-nobi/school-project.git</span>
+
+<span class="comment"># Verify</span>
+<span class="command">git remote -v</span>
+<span class="output">origin  git@github.com:nobita-nobi/school-project.git (fetch)
+origin  git@github.com:nobita-nobi/school-project.git (push)</span></code></pre>
+
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;github-repo&#39;)">Previous: Creating Repository</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;push-pull&#39;)">Next: Push and Pull</a>
+  </div>
+</div>
+
+<!-- PAGE: PUSH AND PULL -->
+<div class="page" id="page-push-pull">
+  <h1>Push and Pull</h1>
+  
+  <p>These are the two most important commands for working with GitHub.</p>
+  
+  <h2 id="push-pull-push">git push - Upload Your Changes</h2>
+  
+  <p>After you make commits on your computer, use <code>git push</code> to upload them to GitHub.</p>
+  
+  <pre><code><span class="comment"># First time pushing (sets upstream)</span>
+<span class="command">git push -u origin main</span>
+
+<span class="comment"># Every time after that</span>
+<span class="command">git push</span></code></pre>
+  
+  <div class="info-box">
+    <h4>What does -u mean?</h4>
+    <p>The <code>-u</code> flag (short for <code>--set-upstream</code>) tells Git that from now on, when you type <code>git push</code>, it should automatically push to <code>origin main</code>. You only need <code>-u</code> the first time.</p>
+  </div>
+  
+  <h2 id="push-pull-pull">git pull - Download Latest Changes</h2>
+  
+  <p>If the code on GitHub has been updated (by you on another computer or by a teammate), download those changes with <code>git pull</code>.</p>
+  
+  <pre><code><span class="command">git pull</span>
+
+<span class="output">remote: Enumerating objects: 5, done.
+Updating a1b2c3d..f3e2d1c
+Fast-forward
+ newfile.txt | 1 +
+ 1 file changed, 1 insertion(+)</span></code></pre>
+  
+  <h2 id="push-pull-workflow">Daily Workflow</h2>
+  
+  <p>This is the sequence every professional developer follows:</p>
+  
+  <pre><code><span class="comment"># 1. Always start by downloading latest code</span>
+<span class="command">git pull</span>
+
+<span class="comment"># 2. Make your changes in text editor...</span>
+
+<span class="comment"># 3. Check what changed</span>
+<span class="command">git status</span>
+
+<span class="comment"># 4. Stage all changes</span>
+<span class="command">git add .</span>
+
+<span class="comment"># 5. Commit with a message</span>
+<span class="command">git commit -m "Describe what you changed"</span>
+
+<span class="comment"># 6. Upload to GitHub</span>
+<span class="command">git push</span></code></pre>
+  
+  <div class="success-box">
+    <h4>Golden Rule</h4>
+    <p>Always run <code>git pull</code> before you start working. This keeps your local copy in sync with GitHub and prevents conflicts.</p>
+  </div>
+  
+  <h2 id="push-pull-fetch">git fetch vs git pull</h2>
+  
+  <p><strong>git fetch:</strong> Download changes but don't merge them yet</p>
+  <pre><code><span class="command">git fetch origin</span>
+<span class="comment"># View what changed</span>
+<span class="command">git log origin/main</span>
+<span class="comment"># Merge when ready</span>
+<span class="command">git merge origin/main</span></code></pre>
+  
+  <p><strong>git pull:</strong> Fetch + Merge in one command</p>
+  <pre><code><span class="command">git pull</span>
+<span class="comment"># Same as: git fetch + git merge</span></code></pre>
+  
+  <h2 id="push-pull-example">Team Collaboration Example</h2>
+  
+  <pre><code><span class="comment"># Morning: Gian pushes new code</span>
+<span class="command">git push</span>
+
+<span class="comment"># Nobita starts work - pulls latest code</span>
+<span class="command">git pull</span>
+<span class="output">Updating a1b2c3d..b2c3d4e
+Fast-forward</span>
+
+<span class="comment"># Nobita makes changes and pushes</span>
+<span class="command">git add .</span>
+<span class="command">git commit -m "Add login feature"</span>
+<span class="command">git push</span>
+
+<span class="comment"># Suneo pulls Nobita's changes</span>
+<span class="command">git pull</span>
+<span class="output">Updating b2c3d4e..c3d4e5f
+Fast-forward</span>
+
+<span class="comment"># Everyone stays in sync!</span></code></pre>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;ssh-setup&#39;)">Previous: HTTPS vs SSH</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;remote-branches&#39;)">Next: Remote Branches</a>
+  </div>
+</div>
+
+
+<!-- PAGE: REMOTE BRANCHES -->
+<div class="page" id="page-remote-branches">
+  <h1>Remote Branches</h1>
+  
+  <p>When working with GitHub, branches exist both locally (on your computer) and remotely (on GitHub).</p>
+  
+  <h2 id="remote-branches-push">Pushing a Branch to GitHub</h2>
+  
+  <pre><code><span class="comment"># Nobita creates a feature branch locally</span>
+<span class="command">git checkout -b feature-login</span>
+
+<span class="comment"># Makes changes and commits</span>
+<span class="command">git add login.txt</span>
+<span class="command">git commit -m "Add login page"</span>
+
+<span class="comment"># Push branch to GitHub</span>
+<span class="command">git push -u origin feature-login</span>
+
+<span class="output">To https://github.com/gian-doraemon/school-project.git
+ * [new branch]      feature-login -&gt; feature-login</span></code></pre>
+  
+  <h2 id="remote-branches-list">Viewing All Branches</h2>
+  
+  <pre><code><span class="comment"># See local branches only</span>
+<span class="command">git branch</span>
+
+<span class="comment"># See all branches (local + remote)</span>
+<span class="command">git branch -a</span>
+
+<span class="output">* main
+  feature-login
+  remotes/origin/main
+  remotes/origin/feature-login</span></code></pre>
+  
+  <h2 id="remote-branches-checkout">Checking Out Remote Branches</h2>
+  
+  <pre><code><span class="comment"># Suneo wants to see Nobita's feature branch</span>
+<span class="command">git fetch origin</span>
+<span class="command">git checkout feature-login</span>
+
+<span class="output">Branch 'feature-login' set up to track remote branch 'feature-login' from 'origin'.</span></code></pre>
+  
+  <h2 id="remote-branches-delete">Deleting Remote Branches</h2>
+  
+  <pre><code><span class="comment"># Delete branch from GitHub</span>
+<span class="command">git push origin --delete feature-login</span>
+
+<span class="comment"># Delete local branch</span>
+<span class="command">git branch -d feature-login</span></code></pre>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;push-pull&#39;)">Previous: Push and Pull</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;pull-requests&#39;)">Next: Pull Requests</a>
+  </div>
+</div>
+
+<!-- PAGE: PULL REQUESTS -->
+<div class="page" id="page-pull-requests">
+  <h1>Pull Requests</h1>
+  
+  <p>A Pull Request (PR) is a way to propose changes to a project. It lets others review your code before merging it into the main branch.</p>
+  
+  <h2 id="pull-requests-why">Why Use Pull Requests?</h2>
+  
+  <ul>
+    <li>Code review - others can check your work</li>
+    <li>Discussion - team can discuss changes</li>
+    <li>Quality control - catch bugs before merging</li>
+    <li>Documentation - record of why changes were made</li>
+  </ul>
+  
+  <h2 id="pull-requests-create">Creating a Pull Request</h2>
+  
+  <ol>
+    <li>Push your feature branch to GitHub</li>
+    <li>Go to the repository on GitHub</li>
+    <li>Click <strong>Pull requests</strong> tab</li>
+    <li>Click <strong>New pull request</strong></li>
+    <li>Select your feature branch</li>
+    <li>Add a title and description</li>
+    <li>Click <strong>Create pull request</strong></li>
+  </ol>
+  
+  <h2 id="pull-requests-example">Example: Nobita's Login Feature</h2>
+  
+  <pre><code><span class="comment"># Nobita creates feature branch</span>
+<span class="command">git checkout -b feature-login</span>
+
+<span class="comment"># Makes changes</span>
+<span class="command">git add login.txt</span>
+<span class="command">git commit -m "Add login page"</span>
+
+<span class="comment"># Pushes to GitHub</span>
+<span class="command">git push -u origin feature-login</span></code></pre>
+  
+  <p>Then on GitHub:</p>
+  <ol>
+    <li>Nobita creates a Pull Request</li>
+    <li>Gian reviews the code</li>
+    <li>Gian approves and merges the PR</li>
+    <li>The feature is now in main branch</li>
+  </ol>
+  
+  <h2 id="pull-requests-review">Reviewing a Pull Request</h2>
+  
+  <p>As a reviewer (Gian):</p>
+  <ul>
+    <li>Read the code changes</li>
+    <li>Leave comments if needed</li>
+    <li>Request changes or approve</li>
+    <li>Merge when ready</li>
+  </ul>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;remote-branches&#39;)">Previous: Remote Branches</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;forking&#39;)">Next: Forking Projects</a>
+  </div>
+</div>
+
+<!-- PAGE: FORKING -->
+<div class="page" id="page-forking">
+  <h1>Forking, Pull Requests and Remote Branches</h1>
+
+  <p>Forking is how you contribute to someone else's project on GitHub. You make your own copy, make changes, and then propose those changes back to the original project through a Pull Request.</p>
+
+  <h2 id="forking-concept">What is a Fork?</h2>
+
+  <p>A fork is a complete copy of someone else's repository that lives in your own GitHub account. You have full control over your fork — you can change anything without affecting the original project.</p>
+
+  <div class="diagram">
+<pre>Original Repo (Gian's):
+github.com/gian-doraemon/school-project
+
+                |
+         Fork button
+                |
+                v
+
+Nobita's Fork:
+github.com/nobita-nobi/school-project   (copy in Nobita's account)
+
+                |
+           git clone
+                |
+                v
+
+Nobita's Computer:
+school-project/   (local copy)
+</pre>
+  </div>
+
+  <h2 id="forking-step1">Step 1: Fork the Repository</h2>
+
+  <ol>
+    <li>Go to Gian's repository: <code>github.com/gian-doraemon/school-project</code></li>
+    <li>Click the <strong>Fork</strong> button in the top-right corner</li>
+    <li>GitHub creates a copy at <code>github.com/nobita-nobi/school-project</code></li>
+  </ol>
+
+  <h2 id="forking-step2">Step 2: Clone Your Fork</h2>
+
+  <pre><code><span class="comment"># Nobita clones his own fork (not Gian's original)</span>
+<span class="command">git clone git@github.com:nobita-nobi/school-project.git</span>
+<span class="command">cd school-project</span>
+
+<span class="comment"># Check remotes</span>
+<span class="command">git remote -v</span>
+<span class="output">origin  git@github.com:nobita-nobi/school-project.git (fetch)
+origin  git@github.com:nobita-nobi/school-project.git (push)</span></code></pre>
+
+  <h2 id="forking-upstream">Step 3: Add the Original Repo as Upstream</h2>
+
+  <p>You need to track Gian's original repo so you can pull his future updates. By convention this remote is called <code>upstream</code>.</p>
+
+  <pre><code><span class="command">git remote add upstream git@github.com:gian-doraemon/school-project.git</span>
+
+<span class="command">git remote -v</span>
+<span class="output">origin    git@github.com:nobita-nobi/school-project.git (fetch)
+origin    git@github.com:nobita-nobi/school-project.git (push)
+upstream  git@github.com:gian-doraemon/school-project.git (fetch)
+upstream  git@github.com:gian-doraemon/school-project.git (push)</span></code></pre>
+
+  <div class="info-box">
+    <h4>origin vs upstream</h4>
+    <p><code>origin</code> = your fork on GitHub (you own this)</p>
+    <p><code>upstream</code> = the original repo (Gian owns this)</p>
+  </div>
+
+  <h2 id="forking-step4">Step 4: Create a Branch and Make Changes</h2>
+
+  <pre><code><span class="comment"># Always create a new branch for your changes</span>
+<span class="command">git checkout -b fix-homepage</span>
+
+<span class="comment"># Make changes — edit homepage.txt in your text editor</span>
+
+<span class="comment"># Stage and commit</span>
+<span class="command">git add homepage.txt</span>
+<span class="command">git commit -m "Fix homepage title"</span></code></pre>
+
+  <h2 id="forking-step5">Step 5: Push to Your Fork</h2>
+
+  <pre><code><span class="comment"># Push to YOUR fork (origin), not upstream</span>
+<span class="command">git push origin fix-homepage</span>
+
+<span class="output">To git@github.com:nobita-nobi/school-project.git
+ * [new branch]      fix-homepage -&gt; fix-homepage</span></code></pre>
+
+  <h2 id="forking-pr">Step 6: Raise a Pull Request</h2>
+
+  <ol>
+    <li>Go to your fork on GitHub: <code>github.com/nobita-nobi/school-project</code></li>
+    <li>GitHub shows a banner: <strong>"fix-homepage had recent pushes — Compare and pull request"</strong></li>
+    <li>Click <strong>Compare and pull request</strong></li>
+    <li>Make sure the base is <code>gian-doraemon/school-project</code> → <code>main</code></li>
+    <li>Write a clear title: <code>Fix homepage title</code></li>
+    <li>Write a description explaining what you changed and why</li>
+    <li>Click <strong>Create pull request</strong></li>
+  </ol>
+
+  <div class="diagram">
+<pre>Pull Request flow:
+
+Nobita's fork                    Gian's original repo
+fix-homepage branch    ---PR--&gt;  main branch
+
+Gian reviews the PR:
+- Reads the code changes
+- Leaves comments if needed
+- Requests changes or approves
+- Clicks "Merge pull request"
+</pre>
+  </div>
+
+  <h2 id="forking-merge">Step 7: Gian Reviews and Merges the PR</h2>
+
+  <p>Gian goes to his repository on GitHub, clicks <strong>Pull requests</strong>, opens Nobita's PR and:</p>
+  <ul>
+    <li>Reviews the changed files in the <strong>Files changed</strong> tab</li>
+    <li>Leaves inline comments if something needs fixing</li>
+    <li>Clicks <strong>Approve</strong> when satisfied</li>
+    <li>Clicks <strong>Merge pull request</strong> → <strong>Confirm merge</strong></li>
+  </ul>
+
+  <p>Nobita's changes are now part of Gian's original repository.</p>
+
+  <h2 id="forking-sync">Step 8: Sync Your Fork with Upstream</h2>
+
+  <p>After the PR is merged, Gian's main branch has moved forward. Nobita needs to pull those changes into his fork to stay up to date.</p>
+
+  <pre><code><span class="comment"># Switch to main branch</span>
+<span class="command">git checkout main</span>
+
+<span class="comment"># Pull latest from Gian's original repo</span>
+<span class="command">git pull upstream main</span>
+
+<span class="output">From github.com:gian-doraemon/school-project
+ * branch            main -&gt; FETCH_HEAD
+Updating a1b2c3d..f3e2d1c
+Fast-forward
+ homepage.txt | 1 +</span>
+
+<span class="comment"># Push the updated main to your own fork</span>
+<span class="command">git push origin main</span></code></pre>
+
+  <p>Now your fork is in sync with the original. Your local machine, your fork, and the original repo all have the same code.</p>
+
+  <h2 id="forking-remote-branch">Pulling and Working on a Remote Branch Locally</h2>
+
+  <p>Suneo pushed a branch called <code>feature-database</code> to GitHub. Nobita wants to pull that branch and test it locally.</p>
+
+  <pre><code><span class="comment"># Fetch all remote branches</span>
+<span class="command">git fetch origin</span>
+
+<span class="comment"># See all remote branches</span>
+<span class="command">git branch -r</span>
+<span class="output">  origin/main
+  origin/feature-database
+  origin/fix-homepage</span>
+
+<span class="comment"># Create a local branch that tracks the remote one</span>
+<span class="command">git checkout -b feature-database origin/feature-database</span>
+
+<span class="output">Branch 'feature-database' set up to track remote branch
+'feature-database' from 'origin'.</span>
+
+<span class="comment"># Now Nobita is on Suneo's branch locally</span>
+<span class="comment"># He can read the code, test it, make changes</span>
+
+<span class="command">git log --oneline</span>
+<span class="output">c3d4e5f (origin/feature-database) Add database connection
+a1b2c3d Initial commit</span></code></pre>
+
+  <h3>Make Changes on the Remote Branch and Push Back</h3>
+
+  <pre><code><span class="comment"># Nobita edits database.txt</span>
+<span class="command">git add database.txt</span>
+<span class="command">git commit -m "Fix database connection string"</span>
+
+<span class="comment"># Push back to the same remote branch</span>
+<span class="command">git push origin feature-database</span></code></pre>
+
+  <p>Now Suneo can pull Nobita's fix on his branch:</p>
+
+  <pre><code><span class="comment"># Suneo pulls the latest on his branch</span>
+<span class="command">git checkout feature-database</span>
+<span class="command">git pull origin feature-database</span></code></pre>
+
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;pull-requests&#39;)">Previous: Pull Requests</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;stash&#39;)">Next: Git Stash</a>
+  </div>
+</div>
+
+<!-- PAGE: GIT STASH -->
+<div class="page" id="page-stash">
+  <h1>Git Stash</h1>
+  
+  <p>Stash temporarily saves your uncommitted changes so you can work on something else.</p>
+  
+  <h2 id="stash-why">When to Use Stash?</h2>
+  
+  <div class="info-box">
+    <h4>Scenario</h4>
+    <p>Nobita is working on a feature. Suddenly, Gian asks him to fix an urgent bug. Nobita's current work is not ready to commit. What should he do?</p>
+    <p><strong>Solution:</strong> Stash the current work, fix the bug, then bring back the stashed work.</p>
+  </div>
+  
+  <h2 id="stash-save">Stashing Changes</h2>
+  
+  <pre><code><span class="comment"># Save current changes</span>
+<span class="command">git stash</span>
+
+<span class="output">Saved working directory and index state</span>
+
+<span class="comment"># Your working directory is now clean</span>
+<span class="command">git status</span>
+<span class="output">nothing to commit, working tree clean</span></code></pre>
+  
+  <h2 id="stash-list">Viewing Stashes</h2>
+  
+  <pre><code><span class="command">git stash list</span>
+
+<span class="output">stash@{0}: WIP on feature-login: a1b2c3d Add login
+stash@{1}: WIP on main: 9e8f7g6 Fix bug</span></code></pre>
+  
+  <h2 id="stash-apply">Applying Stashed Changes</h2>
+  
+  <pre><code><span class="comment"># Apply most recent stash</span>
+<span class="command">git stash apply</span>
+
+<span class="comment"># Apply specific stash</span>
+<span class="command">git stash apply stash@{1}</span>
+
+<span class="comment"># Apply and remove from stash list</span>
+<span class="command">git stash pop</span></code></pre>
+  
+  <h2 id="stash-example">Complete Example</h2>
+  
+  <pre><code><span class="comment"># Nobita is working on feature</span>
+<span class="comment"># Edits login.txt but not ready to commit</span>
+
+<span class="comment"># Urgent bug needs fixing!</span>
+<span class="comment"># Stash current work</span>
+<span class="command">git stash</span>
+
+<span class="comment"># Switch to main branch</span>
+<span class="command">git checkout main</span>
+
+<span class="comment"># Fix the bug</span>
+<span class="command">git add bugfix.txt</span>
+<span class="command">git commit -m "Fix urgent bug"</span>
+<span class="command">git push</span>
+
+<span class="comment"># Go back to feature branch</span>
+<span class="command">git checkout feature-login</span>
+
+<span class="comment"># Bring back stashed work</span>
+<span class="command">git stash pop</span>
+
+<span class="comment"># Continue working on feature</span></code></pre>
+  
+  <h2 id="stash-delete">Deleting Stashes</h2>
+  
+  <pre><code><span class="comment"># Delete specific stash</span>
+<span class="command">git stash drop stash@{0}</span>
+
+<span class="comment"># Delete all stashes</span>
+<span class="command">git stash clear</span></code></pre>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;forking&#39;)">Previous: Forking Projects</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;rebase&#39;)">Next: Git Rebase</a>
+  </div>
+</div>
+
+<!-- PAGE: GIT REBASE -->
+<div class="page" id="page-rebase">
+  <h1>Git Rebase</h1>
+  
+  <p>Rebase is an alternative to merge. It creates a cleaner, linear history.</p>
+  
+  <h2 id="rebase-vs-merge">Rebase vs Merge</h2>
+  
+  <div class="diagram">
+<pre>MERGE:
+main:    A --- B --- C --- M (merge commit)
+              \           /
+feature:       D ------- E
+
+REBASE:
+main:    A --- B --- C
+                         \
+feature:                  D' --- E'
+(commits moved to end of main)
+</pre>
+  </div>
+  
+  <h2 id="rebase-how">How to Rebase</h2>
+  
+  <pre><code><span class="comment"># On feature branch</span>
+<span class="command">git checkout feature-login</span>
+
+<span class="comment"># Rebase onto main</span>
+<span class="command">git rebase main</span>
+
+<span class="output">Successfully rebased and updated refs/heads/feature-login.</span></code></pre>
+  
+  <h2 id="rebase-when">When to Use Rebase?</h2>
+  
+  <ul>
+    <li>To keep a clean, linear history</li>
+    <li>Before merging a feature branch</li>
+    <li>To update your branch with latest main</li>
+  </ul>
+  
+  <div class="danger-box">
+    <h4>Warning</h4>
+    <p>Never rebase commits that have been pushed to GitHub and shared with others. Only rebase local commits.</p>
+  </div>
+  
+  <h2 id="rebase-example">Example</h2>
+  
+  <pre><code><span class="comment"># Nobita's feature branch is behind main</span>
+<span class="command">git checkout feature-login</span>
+
+<span class="comment"># Update with latest main</span>
+<span class="command">git rebase main</span>
+
+<span class="comment"># Now feature branch has latest main changes</span>
+<span class="comment"># And commits are in a clean line</span></code></pre>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;stash&#39;)">Previous: Git Stash</a>
+    <a class="page-nav-btn" onclick="showPage(&#39;cheatsheet&#39;)">Next: Command Cheatsheet</a>
+  </div>
+</div>
+
+<!-- PAGE: CHEATSHEET -->
+<div class="page" id="page-cheatsheet">
+  <h1>Git Command Cheatsheet</h1>
+  
+  <p>Quick reference for all Git commands covered in this guide.</p>
+  
+  <h2 id="cheat-setup">Setup</h2>
+  <table>
+    <thead>
+      <tr><th>Command</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>git config --global user.name "Name"</code></td><td>Set your name</td></tr>
+      <tr><td><code>git config --global user.email "email"</code></td><td>Set your email</td></tr>
+      <tr><td><code>git config --list</code></td><td>View settings</td></tr>
+    </tbody>
+  </table>
+  
+  <h2 id="cheat-basic">Basic Commands</h2>
+  <table>
+    <thead>
+      <tr><th>Command</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>git init</code></td><td>Initialize repository</td></tr>
+      <tr><td><code>git status</code></td><td>Check file status</td></tr>
+      <tr><td><code>git add filename</code></td><td>Stage specific file</td></tr>
+      <tr><td><code>git add .</code></td><td>Stage all files</td></tr>
+      <tr><td><code>git commit -m "message"</code></td><td>Commit changes</td></tr>
+      <tr><td><code>git log</code></td><td>View history</td></tr>
+      <tr><td><code>git log --oneline</code></td><td>Compact history</td></tr>
+      <tr><td><code>git diff</code></td><td>See changes</td></tr>
+    </tbody>
+  </table>
+  
+  <h2 id="cheat-undo">Undoing Changes</h2>
+  <table>
+    <thead>
+      <tr><th>Command</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>git restore --staged file</code></td><td>Unstage file</td></tr>
+      <tr><td><code>git restore file</code></td><td>Discard changes</td></tr>
+      <tr><td><code>git reset HEAD~1</code></td><td>Undo last commit</td></tr>
+      <tr><td><code>git reset --hard HEAD~1</code></td><td>Undo and delete changes</td></tr>
+      <tr><td><code>git revert commit-id</code></td><td>Safely undo commit</td></tr>
+    </tbody>
+  </table>
+  
+  <h2 id="cheat-branch">Branching</h2>
+  <table>
+    <thead>
+      <tr><th>Command</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>git branch</code></td><td>List branches</td></tr>
+      <tr><td><code>git branch name</code></td><td>Create branch</td></tr>
+      <tr><td><code>git checkout name</code></td><td>Switch branch</td></tr>
+      <tr><td><code>git checkout -b name</code></td><td>Create and switch</td></tr>
+      <tr><td><code>git merge branch-name</code></td><td>Merge branch</td></tr>
+      <tr><td><code>git branch -d name</code></td><td>Delete branch</td></tr>
+    </tbody>
+  </table>
+  
+  <h2 id="cheat-github">GitHub</h2>
+  <table>
+    <thead>
+      <tr><th>Command</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>git clone url</code></td><td>Clone repository</td></tr>
+      <tr><td><code>git remote add origin url</code></td><td>Add remote</td></tr>
+      <tr><td><code>git remote -v</code></td><td>View remotes</td></tr>
+      <tr><td><code>git push -u origin main</code></td><td>First push</td></tr>
+      <tr><td><code>git push</code></td><td>Push changes</td></tr>
+      <tr><td><code>git pull</code></td><td>Pull changes</td></tr>
+      <tr><td><code>git fetch</code></td><td>Fetch without merge</td></tr>
+    </tbody>
+  </table>
+  
+  <h2 id="cheat-advanced">Advanced</h2>
+  <table>
+    <thead>
+      <tr><th>Command</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>git stash</code></td><td>Save changes temporarily</td></tr>
+      <tr><td><code>git stash pop</code></td><td>Apply stashed changes</td></tr>
+      <tr><td><code>git stash list</code></td><td>List stashes</td></tr>
+      <tr><td><code>git rebase main</code></td><td>Rebase onto main</td></tr>
+    </tbody>
+  </table>
+  
+  <h2 id="cheat-workflow">Typical Workflow</h2>
+  <pre><code><span class="command">git pull</span>                    <span class="comment"># Get latest code</span>
+<span class="command">git checkout -b feature</span>    <span class="comment"># Create feature branch</span>
+<span class="comment"># ... make changes ...</span>
+<span class="command">git add .</span>                  <span class="comment"># Stage changes</span>
+<span class="command">git commit -m "message"</span>    <span class="comment"># Commit</span>
+<span class="command">git push -u origin feature</span> <span class="comment"># Push branch</span>
+<span class="comment"># ... create Pull Request on GitHub ...</span>
+<span class="comment"># ... after PR is merged ...</span>
+<span class="command">git checkout main</span>          <span class="comment"># Switch to main</span>
+<span class="command">git pull</span>                    <span class="comment"># Get merged code</span>
+<span class="command">git branch -d feature</span>      <span class="comment"># Delete feature branch</span></code></pre>
+  
+  <div class="success-box">
+    <h4>Congratulations!</h4>
+    <p>You have completed the Git and GitHub guide. You now know how to:</p>
+    <ul>
+      <li>Track changes with Git</li>
+      <li>Work with branches</li>
+      <li>Collaborate using GitHub</li>
+      <li>Handle merge conflicts</li>
+      <li>Use advanced features like stash and rebase</li>
+    </ul>
+    <p>The best way to learn is by practicing. Start using Git for your school projects today!</p>
+  </div>
+  
+  <div class="page-nav">
+    <a class="page-nav-btn" onclick="showPage(&#39;rebase&#39;)">Previous: Git Rebase</a>
+    <span></span>
+  </div>
+</div>
+
+</main>
+
+<!-- RIGHT TABLE OF CONTENTS -->
+<aside class="toc">
+  <div class="toc-title">On This Page</div>
+  <div id="toc-links"><a class="toc-link">The Problem Without Version Control</a><a class="toc-link level-3">Meet Our Coding Team</a><a class="toc-link level-3">Problems Without Git</a><a class="toc-link">The Solution: Git</a><a class="toc-link">Git vs GitHub</a></div>
+</aside>
+
+<script>
+// Landing Dashboard
+function enterDocs() {
+  const landing = document.getElementById('landing');
+  landing.classList.add('hide');
+  setTimeout(() => { landing.style.display = 'none'; }, 500);
+}
+
+function goHome() {
+  const landing = document.getElementById('landing');
+  landing.style.display = 'flex';
+  // small delay so display:flex kicks in before transition
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      landing.classList.remove('hide');
+    });
+  });
+}
+
+// Mobile Menu Functions
+function toggleMobileMenu() {
+  const sidebar = document.querySelector('.sidebar');
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const overlay = document.querySelector('.mobile-overlay');
+  
+  sidebar.classList.toggle('mobile-open');
+  menuBtn.classList.toggle('active');
+  overlay.classList.toggle('active');
+}
+
+function closeMobileMenu() {
+  const sidebar = document.querySelector('.sidebar');
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const overlay = document.querySelector('.mobile-overlay');
+  
+  sidebar.classList.remove('mobile-open');
+  menuBtn.classList.remove('active');
+  overlay.classList.remove('active');
+}
+
+// Theme Toggle Function — syncs all toggle buttons on page
+function toggleTheme() {
+  const body = document.body;
+  const moonIcons = document.querySelectorAll('.moon-icon');
+  const sunIcons  = document.querySelectorAll('.sun-icon');
+
+  body.classList.toggle('dark-mode');
+
+  if (body.classList.contains('dark-mode')) {
+    moonIcons.forEach(i => i.style.display = 'none');
+    sunIcons.forEach(i  => i.style.display = 'block');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    moonIcons.forEach(i => i.style.display = 'block');
+    sunIcons.forEach(i  => i.style.display = 'none');
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+// Page navigation
+const pages = {
+  'intro': 'page-intro',
+  'install': 'page-install',
+  'config': 'page-config',
+  'concepts': 'page-concepts',
+  'stages': 'page-stages',
+  'commands': 'page-commands',
+  'gitignore': 'page-gitignore',
+  'undoing': 'page-undoing',
+  'branches': 'page-branches',
+  'merging': 'page-merging',
+  'conflicts': 'page-conflicts',
+  'github-intro': 'page-github-intro',
+  'github-account': 'page-github-account',
+  'github-repo': 'page-github-repo',
+  'ssh-setup': 'page-ssh-setup',
+  'push-pull': 'page-push-pull',
+  'remote-branches': 'page-remote-branches',
+  'pull-requests': 'page-pull-requests',
+  'forking': 'page-forking',
+  'stash': 'page-stash',
+  'rebase': 'page-rebase',
+  'cheatsheet': 'page-cheatsheet'
+};
+
+function showPage(pageName) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+  
+  // Show selected page
+  const pageId = pages[pageName];
+  if (pageId) {
+    document.getElementById(pageId).classList.add('active');
+  }
+  
+  // Update sidebar active state
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.remove('active');
+  });
+  event.target.classList.add('active');
+  
+  // Scroll to top
+  document.querySelector('.main-content').scrollTop = 0;
+  
+  // Build table of contents
+  buildTOC(pageId);
+  
+  // Close mobile menu
+  closeMobileMenu();
+}
+
+function buildTOC(pageId) {
+  const page = document.getElementById(pageId);
+  const headings = page.querySelectorAll('h2, h3');
+  const tocLinks = document.getElementById('toc-links');
+  
+  tocLinks.innerHTML = '';
+  
+  headings.forEach(heading => {
+    const link = document.createElement('a');
+    link.className = 'toc-link';
+    if (heading.tagName === 'H3') {
+      link.classList.add('level-3');
+    }
+    link.textContent = heading.textContent;
+    link.onclick = () => {
+      heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    tocLinks.appendChild(link);
+  });
+  
+  // Highlight active TOC link on scroll
+  const mainContent = document.querySelector('.main-content');
+  mainContent.addEventListener('scroll', () => {
+    let current = '';
+    headings.forEach(heading => {
+      const rect = heading.getBoundingClientRect();
+      if (rect.top < 100) {
+        current = heading.textContent;
+      }
+    });
+    
+    document.querySelectorAll('.toc-link').forEach(link => {
+      link.classList.remove('active');
+      if (link.textContent === current) {
+        link.classList.add('active');
+      }
+    });
+  });
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  // Load saved theme
+  const savedTheme = localStorage.getItem('theme');
+  const moonIcon = document.querySelector('.moon-icon');
+  const sunIcon = document.querySelector('.sun-icon');
+  
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    if (moonIcon) moonIcon.style.display = 'none';
+    if (sunIcon) sunIcon.style.display = 'block';
+  }
+  
+  // Build table of contents
+  buildTOC('page-intro');
+});
+</script>
+
+
+
+</body></html>
