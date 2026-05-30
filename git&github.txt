@@ -83,4 +83,30 @@ git add -h
 git add ke saare options aur help dikhata hai.
 
 
-aur humko dekhna hai maine kab kab commit kiya hu toh (git log) karenge isse yeh details milta hai maine kab kab kya kiya
+aur humko dekhna hai maine kab kab commit kiya hu toh (git log) karenge isse yeh details milta hai maine kab kab kya hai short main dekhna hua toh (git log --oneline)
+aur jab bhi humein dekhna hai maine kiya line hatake aur konsa line likha hu toh uske liye humlog (git diff) ka use karenge iss pata chal jaata hai mera changes
+
+aur jab bhi mera kuch inportant folder rehta hai toh hum usko github main nhi dhaalte agar mujhe chahiye ki woh important folder nahi jaaiye toh uske liye hum Working directory main ek file banate hai (.gitignore) karke aur humko jo bhi folder ya file ko github main nahi dhaalne hai toh hum usko naame likhe hai 
+(.gitignore) ke andar jaise ki mera paaas ek  file  hai hello1 jaise ki (.gitignore) ke andr likhayega waise hi uss file ke paas se (U) hatt jaiyega 
+
+aur jab bhi hum new folder banate hai working directory main toh woh track nahi karta hai git kyu ki empty folder ko git kabhi track nahi karta hai agar humko track karwana hai toh uss folder ke andr hum kuch file banaiyenge taaki git track kar skhe
+agar humko uss folder ke andar kuch bhi file nahi banana hai toh hum uss folder ke andr ek git ka file banaiyenge jo ke hidden hota hai agar woh github main folder ke andr kar file jo git wala woh nahi dikhega uss file ka naam hota hai (.gitkeep) yeh banne ke baad git empty folder ko track karega par yeh (.gitkeep) show nahi hota hai bilkul
+
+undoing changes
+git main basically 3 Areas hota hai 
+
+1. Working Directory
+
+2. Staging Area
+
+3. Repository (Repo)
+
+agar hum hum working directory se staging area main chale gaye ya Phir hum working area se repository tak chale gaye ya toh Phir staging area se repository tak chale gaye aur humko maan le ke repository se working directory main aana hai toh humko (git reset )  ka use karna hota hai aur
+
+(git reset ) 3 type ka hota hai 
+1. soft reset  // agar humko hmko sirf ek stage piche jaana hai toh soft ka use karenge jaise ki mera code main kuch issue hai aur woh repository main hai toh humko wahi code ko staging area main laana hai toh hum soft ka use karenge soft reset basically 3 stage kaam karta hai repository se hatake hum staging area main laate hai phir usko unstage karte hai tak hatate hai
+2. mix reset  // mix mian yeh hota hai ki agar repository hai toh uko hum staging area main nahi laate directory usko working directory main laate hai phir hata deta hai main changes kiya woh psnd nahi aaya toh 
+3. hard reset  ///har main direct hata dete hai naa hi staging area main laate hai aur naahi working directory main direct remove karte hai 
+command 
+1. soft (git reset --soft HEAD~1) yeh commad se repository se direct staging area main aayega phir humko staging area se working directory main aana hai toh hum  (git restore --staged <fileName>)
+2. 
