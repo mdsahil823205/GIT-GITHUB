@@ -110,4 +110,5 @@ agar hum hum working directory se staging area main chale gaye ya Phir hum worki
 command 
 1. soft (git reset --soft HEAD~1) yeh commad se repository se direct staging area main aayega phir humko staging area se working directory main aana hai toh hum  (git restore --staged <fileName>) agar hum apne code kuch line jo add kiye the uska bhi hatana hai toh (git restore <fileName>) isme humlog yeh kiye sabse pehle repository->staging area->untracked->line of code remove
 
-2. 
+2. mix (git reset Head~1) yeh direct repository se unstage ho jaaiyega yeh command statging main jaata nahi hai dorect untrack hota hai agar humko remove karna hua line of code toh yeh likhenge (git restore <fileName>) yaha pe humlog repository->unstage->remove
+
