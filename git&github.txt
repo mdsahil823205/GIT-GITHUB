@@ -108,5 +108,6 @@ agar hum hum working directory se staging area main chale gaye ya Phir hum worki
 2. mix reset  // mix mian yeh hota hai ki agar repository hai toh uko hum staging area main nahi laate directory usko working directory main laate hai phir hata deta hai main changes kiya woh psnd nahi aaya toh 
 3. hard reset  ///har main direct hata dete hai naa hi staging area main laate hai aur naahi working directory main direct remove karte hai 
 command 
-1. soft (git reset --soft HEAD~1) yeh commad se repository se direct staging area main aayega phir humko staging area se working directory main aana hai toh hum  (git restore --staged <fileName>)
+1. soft (git reset --soft HEAD~1) yeh commad se repository se direct staging area main aayega phir humko staging area se working directory main aana hai toh hum  (git restore --staged <fileName>) agar hum apne code kuch line jo add kiye the uska bhi hatana hai toh (git restore <fileName>) isme humlog yeh kiye sabse pehle repository->staging area->untracked->line of code remove
+
 2. 
